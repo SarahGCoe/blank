@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_161319) do
+ActiveRecord::Schema.define(version: 2019_05_28_094524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "problem_votes", force: :cascade do |t|
+    t.bigint "problem_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["problem_id"], name: "index_problem_votes_on_problem_id"
+    t.index ["user_id"], name: "index_problem_votes_on_user_id"
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "problem_votes_count", default: 0
+    t.string "category"
+    t.index ["user_id"], name: "index_problems_on_user_id"
+  end
+
+  create_table "solution_votes", force: :cascade do |t|
+    t.bigint "solution_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["solution_id"], name: "index_solution_votes_on_solution_id"
+    t.index ["user_id"], name: "index_solution_votes_on_user_id"
+  end
+
+  create_table "solutions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.bigint "problem_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "solution_votes_count", default: 0
+    t.index ["problem_id"], name: "index_solutions_on_problem_id"
+    t.index ["user_id"], name: "index_solutions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +64,16 @@ ActiveRecord::Schema.define(version: 2019_05_27_161319) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "problem_votes", "problems"
+  add_foreign_key "problem_votes", "users"
+  add_foreign_key "problems", "users"
+  add_foreign_key "solution_votes", "solutions"
+  add_foreign_key "solution_votes", "users"
+  add_foreign_key "solutions", "problems"
+  add_foreign_key "solutions", "users"
 end
