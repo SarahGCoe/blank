@@ -20,13 +20,16 @@ puts 'Creating 5 Users...'
     problem = Problem.new(title: Faker::Book.title,
       description: Faker::Quote.famous_last_words,
       category: CATEGORY.sample)
-    problem.save
+    problem.user = user
+    problem.save!
 
     puts 'Creating 2 Solutions...'
     2.times do |k|
     solution = Solution.new(title: Faker::Movies::HarryPotter.book,
       description: Faker::Movies::HarryPotter.quote)
-    solution.save
+    solution.user = user
+    solution.problem = problem
+    solution.save!
   end
   end
 end
