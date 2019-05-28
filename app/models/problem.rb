@@ -6,5 +6,5 @@ class Problem < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :title, uniqueness: true
-  validates :category, inclusion: { in: %w[environment food lifestyle education social tech] }
+  validates :category, inclusion: { in: %w[Environment Food Lifestyle Education Social Tech] }
 end
