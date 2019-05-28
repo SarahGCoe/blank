@@ -1,2 +1,35 @@
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My issues</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My ideas</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <h1> Welcome <%= current_user.name %> </h1>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <% @problems.each do |problem| %>
+      <%= problem.title %>
+      <%= link_to 'More details...', problem_path(problem) %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <% @solutions.each do |solution| %>
+      <%= solution.title %>
+      <%= link_to 'More details...', solution_path(solution) %>
+      <% end %>
+    </div>
+  </div>
+
+</ul>
+
 <%= link_to "Back to homepage", root_path %>
 <%= link_to "Read the problems", problems_path %>
+</div>
