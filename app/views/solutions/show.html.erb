@@ -3,8 +3,9 @@
     <h5 class="card-title"><%= @solution.title %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @solution.user.name %></h6>
     <p class="card-text"><%= @solution.description %></p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+
+    <%= link_to 'Back to problem', problem_path(@solution.problem) %>
+    <p></p>
+    <%= link_to 'Back to problems list', problems_path %>
   </div>
 </div>
-
