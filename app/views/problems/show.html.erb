@@ -1,12 +1,13 @@
 <div class="container">
   <h1>Problem description</h1>
   <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= @problem.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
-      <p class="card-text"><%= @problem.description %></p>
-      <%= link_to "List of problems", problems_path %>
-      <%= link_to "Add a new solution", new_problem_solution_path(@problem) %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @problem.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
+    <p class="card-text"><%= @problem.description %></p>
+    <%= link_to "List of problems", problems_path %>
+    <%= pluralize(@problem.problem_votes_count, "vote") %>
+    <%= button_to '+1', problem_problem_votes_path(@problem), method: :post %>
     </div>
   </div>
 
@@ -22,3 +23,4 @@
     <% end %>
   </div>
 </div>
+<td></td>
