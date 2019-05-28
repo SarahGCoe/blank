@@ -1,9 +1,4 @@
 class SolutionsController < ApplicationController
-  def index
-    @problem = Problem.find(params[:problem_id])
-    @solutions = Solution.where(problem: @problem)
-  end
-
   def show
     @solution = Solution.find(params[:id])
   end
@@ -15,7 +10,8 @@ class SolutionsController < ApplicationController
 
   def create
     @solution = Solution.new(solution_params)
-    @problem = Problem.find(params[:problem_id])
+    @solution.problem = Problem.find(params[:problem_id])
+    @solution.user = current_user
     if @solution.save
       redirect_to solution_path
     else
