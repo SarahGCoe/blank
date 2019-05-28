@@ -13,7 +13,7 @@ class SolutionsController < ApplicationController
     @solution.problem = Problem.find(params[:problem_id])
     @solution.user = current_user
     if @solution.save
-      redirect_to solution_path
+      redirect_to solution_path(@solution)
     else
       render :new
     end
