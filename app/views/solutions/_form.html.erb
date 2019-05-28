@@ -1,7 +1,9 @@
-<%= simple_form_for [@problem, @solution] do |f| %>
-<%= f.error_notification %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.button :submit, class: "btn-primary" %>
-<%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
+  <%= simple_form_for [@problem, @solution] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+  <%= link_to "Back to problem", problem_path(@problem) %>
+
