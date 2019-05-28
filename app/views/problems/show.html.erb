@@ -1,5 +1,14 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @problem.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
+    <p class="card-text"><%= @problem.description %></p>
+    <%= link_to "List of problems", problems_path %>
+  </div>
+</div>
+
 <div class="card mb-3">
-    <% @problem.solutions each |solution| do %>
+    <% @problem.solutions.each do |solution| %>
     <div class="card-body">
     <h5 class="card-title"><%= solution.title %></h5>
     <p class="card-text"><%= solution.description %></p>

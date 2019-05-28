@@ -1,7 +1,12 @@
-<ul>
-<% @problems.each do |problem|%>
-  <li> <%= problem.title  %> </li>
-<% end %>
-</ul>
-<%= link_to "Read the problems", problems_path %>
+<div class="card mb-3">
+  <% @problems.each do |problem| %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to problem.title, problem_path(problem) %></h5>
+    <p class="card-text"><%= problem.description %></p>
+    <p class="card-text"><small class="text-muted"><%= problem.user.name %></small></p>
+  </div>
+  <% end %>
+</div>
+<%= link_to "List of problems", problems_path %>
 <%= link_to "Dashboard", dashboard_path %>
+
