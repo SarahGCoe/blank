@@ -4,6 +4,9 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
     <p class="card-text"><%= @problem.description %></p>
     <%= link_to "List of problems", problems_path %>
+    <%= pluralize(@problem.problem_votes_count, "vote") %>
+    <%= button_to '+1', problem_problem_votes_path(@problem), method: :post %>
+
   </div>
 </div>
 
@@ -17,3 +20,4 @@
   </div>
   <% end %>
 </div>
+<td></td>
