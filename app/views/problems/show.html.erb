@@ -1,4 +1,6 @@
-<div class="card" style="width: 18rem;">
+<div class="container">
+  <h1>Problem description</h1>
+  <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @problem.title %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
@@ -6,18 +8,19 @@
     <%= link_to "List of problems", problems_path %>
     <%= pluralize(@problem.problem_votes_count, "vote") %>
     <%= button_to '+1', problem_problem_votes_path(@problem), method: :post %>
-
+    </div>
   </div>
-</div>
 
-<div class="card mb-3">
+  <h1>Solutions</h1>
+  <div class="card mb-3">
     <% @problem.solutions.each do |solution| %>
     <div class="card-body">
-    <h5 class="card-title"><%= solution.title %></h5>
-    <p class="card-text"><%= solution.description %></p>
-    <p class="card-text"><small class="text-muted"><%= solution.user.name %></small></p>
-    <%= link_to 'More details...', solution_path(solution) %>
+      <h5 class="card-title"><%= solution.title %></h5>
+      <p class="card-text"><%= solution.description %></p>
+      <p class="card-text"><small class="text-muted"><%= solution.user.name %></small></p>
+      <%= link_to 'More details...', solution_path(solution) %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 <td></td>

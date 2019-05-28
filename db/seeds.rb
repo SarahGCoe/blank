@@ -13,7 +13,7 @@ puts 'Creating 5 Users...'
 5.times do |i|
   user = User.create!(name: Faker::Science.scientist,
     email: Faker::Internet.email,
-    password: Faker::GreekPhilosophers.quote)
+    password: "azerty")
 
   puts 'Creating 2 Problems...'
   2.times do |j|
