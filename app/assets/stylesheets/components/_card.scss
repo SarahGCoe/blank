@@ -1,0 +1,65 @@
+.problem-cards-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.problem-card-container {
+  border: 1px solid #878686;
+  width: 400px;
+  height: 432px;
+  border-radius: 10px;
+  margin: 30px;
+  padding: 30px;
+}
+
+.problem-card-header {
+  border: 2px solid red;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#problem-card-category-image {
+  width: 120px;
+  height: 100%;
+  background-color: grey;
+}
+
+.avatar-user-medium {
+  width: 75px;
+  height:75px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
+.problem-card-category {
+  border: 2px solid red;
+  width: 100%;
+  height: 8%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.problem-card-title {
+  border: 2px solid black;
+  width: 100%;
+  height: 10%;
+}
+
+.problem-card-description {
+  border: 2px solid green;
+  width: 100%;
+  height: 35%;
+}
+
+.problem-card-votes {
+  border: 2px solid green;
+  width: 100%;
+  height: 20%;
+}
+
+.category-name {
+  color: #9C9C9C;
+  font-size: 15px;
+}
