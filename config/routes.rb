@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard'
   resources :problems, only: [:index, :show] do
-    resources :problem_votes, only: [:create]
     resources :solutions, only: [:new, :create]
   end
 
   resources :solutions, only: [:show]
 
+  resources :problem_votes, only: [:create]
 
   resources :solution_votes, only: [:create]
 
