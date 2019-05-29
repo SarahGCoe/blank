@@ -1,0 +1,72 @@
+.card-solution {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  padding-bottom: -10px;
+  border-radius: 12px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 3px;
+}
+
+.card-solution-profile {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-solution-profile-description {
+  margin-left: 15px;
+  margin-top: 0px;
+}
+
+.card-solution-profile h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 3px;
+  margin-top: 0px;
+}
+
+.card-solution-profile p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 2px;
+  margin-left: 3px;
+  font-weight: 100;
+}
+
+.card-solution .card-solution-profile {
+  padding: 16px;
+}
+
+.card-solution-description {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card-solution-description h3{
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+
+.card-solution-description p {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.visible-scrollbar {
+  width: 95%;
+  height: 40px;
+  FLOAT: left;
+  margin-bottom: 2px;
+  padding: 1%;
+  overflow: scroll;
+}

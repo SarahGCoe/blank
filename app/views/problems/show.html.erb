@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <h1>Solutions</h1>
+<!--   <h1>Solutions</h1>
   <div class="card mb-3">
     <% @problem.solutions.each do |solution| %>
     <div class="card-body">
@@ -30,5 +30,32 @@
     </div>
     <% end %>
   </div>
-</div>
+</div> -->
 <td></td>
+
+<div class="card-solution mb-3">
+  <% @problem.solutions.each do |solution| %>
+    <div class="card-solution-profile">
+      <a href="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"><img width="20" height="20" title="avatar" alt="Flower" class= "avatar"></a>
+      <div class="card-solution-profile-description">
+        <h4 class="name-entreprneur-solution"><%= solution.user.name %></h4>
+        <p class="date-poste-solution">Created on Monday</p>
+      </div>
+      <div class="vote-solution">
+        <button class= "yellow-lined-button"><%= pluralize(solution.solution_votes_count, "vote") %></button>
+        <%= button_to solution_votes_path do %>
+          <%= hidden_field_tag 'solution_id', solution.id %>
+          +1
+      <% end %>
+      </div>
+    </div>
+    <div class="card-solution-description">
+      <h3><%= solution.title %></h3>
+        <div class="visible-scrollbar">
+          <p class= "solution-description"><%= solution.description %></p>
+        </div>
+    </div>
+    <%= link_to 'More details...', solution_path(solution) %>
+     <% end %>
+  </div>
+</div>
