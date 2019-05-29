@@ -1,0 +1,67 @@
+.btn {
+  @include shadow();
+  text-transform: uppercase;
+
+  &:not(.disabled):hover {
+    margin-top: 1px;
+    border-bottom-width: 3px;
+  }
+
+  &:not(.disabled):active {
+    margin-top: 2px;
+    border-bottom-width: 2px;
+    @include box-shadow(none);
+  }
+}
+
+[class*="btn-outline"] {
+  border-top-width: 1px;
+}
+
+.btn {
+  &-primary {
+    border-color: darken($primary, 5%);
+  }
+
+  &-secondary {
+    border-color: darken($secondary, 5%);
+  }
+
+  &-success {
+    border-color: darken($success, 5%);
+  }
+
+  &-info {
+    border-color: darken($info, 5%);
+  }
+
+  &-danger {
+    border-color: darken($danger, 5%);
+  }
+
+  &-warning {
+    border-color: darken($warning, 5%);
+  }
+
+  &-light {
+    border-color: darken($light, 5%);
+  }
+
+  &-dark {
+    border-color: darken($dark, 5%);
+  }
+}
+
+.btn-group-vertical {
+  .btn + .btn {
+    &:hover {
+      margin-top: -1px;
+      border-top-width: 1px;
+    }
+
+    &:active {
+      margin-top: -1px;
+      border-top-width: 2px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+a.list-group-item {
+
+  &-success {
+    &.active {
+      background-color: $success;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($success, 5%);
+    }
+  }
+
+  &-warning {
+    &.active {
+      background-color: $warning;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($warning, 5%);
+    }
+  }
+
+  &-danger {
+    &.active {
+      background-color: $danger;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($danger, 5%);
+    }
+  }
+}
+
+.jumbotron {
+  border: 1px solid $gray-200;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.modal {
+
+  .close {
+    color: $black;
+
+    &:not(:disabled):not(.disabled):hover,
+    &:not(:disabled):not(.disabled):focus {
+      color: $black;
+    }
+  }
+}
