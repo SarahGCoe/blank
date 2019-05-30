@@ -3,14 +3,13 @@
   background: white;
   font-family: 'Roboto', sans-serif;
   border: 1px solid grey;
-  border-radius: 8px;
   font-size: 10px;
 }
 
 .visible-scrollbar {
   width: 95%;
   height: 40px;
-  FLOAT: left;
+  float: left;
   margin-bottom: 2px;
   padding: 1%;
   overflow: scroll;
@@ -45,4 +44,8 @@
 
 .solution-main-title h3 {
   font-family: 'Courier New', arial;;
+}
+
+.btn-without-border span {
+  border: none;
 }
