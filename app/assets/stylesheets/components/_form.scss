@@ -7,17 +7,7 @@
   border: 1px solid #CED4DA;
   border-radius: 8px;
   text-align: center
-}
-.form-container h1{
-  font-family: Roboto;
-  text-transform: uppercase;
-}
-.roboto {
-  font-family: Roboto;
-}
-
-.form-container {
-  display: flex;
+      display: flex;
   height: 600px;
   justify-content: center;
   flex-direction: column;
@@ -27,4 +17,13 @@
   width: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+.form-container h1{
+  font-family: Roboto;
+  text-transform: uppercase;
+}
+.roboto {
+  font-family: Roboto;
+}
+
+
 
