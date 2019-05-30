@@ -2,8 +2,9 @@
   border-radius: 12px;
   background: white;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 8px;
+  font-size: 10px;
 }
 
 .visible-scrollbar {
@@ -31,8 +32,17 @@
 
 .card-solution-description h3 {
   font-size: 13px;
+  letter-spacing: 0.1em;
 }
 
 .rounded-border {
   border-radius: 16px;
+}
+
+.btn-outline-secondary {
+  font-size: 10px;
+}
+
+.solution-main-title h3 {
+  font-family: 'Courier New', arial;;
 }
