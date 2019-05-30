@@ -1,13 +1,46 @@
-<div class="container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= @solution.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @solution.user.name %></h6>
-      <p class="card-text"><%= @solution.description %></p>
+<div class="container-show-solution d-flex justify-content-center">
+  <div class="container col-10">
+    <div class="row">
 
-      <%= link_to 'Back to problem', problem_path(@solution.problem) %>
-      <p></p>
-      <%= link_to 'Back to problems list', problems_path %>
+      <div class="col-sm-7">
+        <div class="main-title mt-4 ml-5 mb-3">
+          <h2><%= @solution.title %></h2>
+        </div>
+        <div class="main-title ml-5">
+          <p><%= @solution.description %></p>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4" >
+          <div class="avatar-large"></div>
+          <h3><%= @solution.user.name %></h3>
+          <p><%= @solution.description %></p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 mt-5">
+        <div class="card-number-votes">
+          <h4> Number of votes : <%= @solution.solution_votes_count %></h4>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="stipe-donation-form">
+          stripe donation form
+        </div>
+      </div>
+
+      <div class="col-sm-12 ml-5">
+        <div class="link-back-to-problem">
+          <p class="link-back"><%= link_to " Back to problem", problem_path(@solution.problem) %></p>
+        </div>
+      </div>
+      <div class="col-sm-12 ml-5">
+        <div class="link-back-to-problems">
+          <%= link_to ' Back to problems list', problems_path %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+
