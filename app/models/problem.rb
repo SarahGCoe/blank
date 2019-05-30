@@ -1,6 +1,6 @@
 class Problem < ApplicationRecord
   belongs_to :user
-  has_many :solutions
+  has_many :solutions, dependent: :destroy
 
   has_many :problem_votes
 
