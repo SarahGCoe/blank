@@ -1,61 +1,70 @@
-<div class="container">
-  <h1>Problem description</h1>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= @problem.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
-      <p class="card-text"><%= @problem.description %></p>
-      <%= link_to "List of problems", problems_path %>
-      <%= pluralize(@problem.problem_votes_count, "vote") %>
-      <%= button_to problem_votes_path do %>
-        <%= hidden_field_tag 'problem_id', @problem.id %>
-        +1
-      <% end %>
-    </div>
-  </div>
+<div class="container-show">
+  <div class="row">
 
-<!--   <h1>Solutions</h1>
-  <div class="card mb-3">
-    <% @problem.solutions.each do |solution| %>
-    <div class="card-body">
-      <h5 class="card-title"><%= solution.title %></h5>
-      <p class="card-text"><%= solution.description %></p>
-      <p class="card-text"><small class="text-muted"><%= solution.user.name %></small></p>
-      <%= link_to 'More details...', solution_path(solution) %>
-      <%= pluralize(solution.solution_votes_count, "vote") %>
-      <%= button_to solution_votes_path do %>
-        <%= hidden_field_tag 'solution_id', solution.id %>
-        +1
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div> -->
-<td></td>
-
-<div class="card-solution mb-3">
-  <% @problem.solutions.each do |solution| %>
-    <div class="card-solution-profile">
-      <a href="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"><img width="20" height="20" title="avatar" alt="Flower" class= "avatar"></a>
-      <div class="card-solution-profile-description">
-        <h4 class="name-entreprneur-solution"><%= solution.user.name %></h4>
-        <p class="date-poste-solution">Created on Monday</p>
-      </div>
-      <div class="vote-solution">
-        <button class= "yellow-lined-button"><%= pluralize(solution.solution_votes_count, "vote") %></button>
-        <%= button_to solution_votes_path do %>
-          <%= hidden_field_tag 'solution_id', solution.id %>
-          +1
-      <% end %>
-      </div>
-    </div>
-    <div class="card-solution-description">
-      <h3><%= solution.title %></h3>
-        <div class="visible-scrollbar">
-          <p class= "solution-description"><%= solution.description %></p>
+    <div class="col-sm-6">
+      <h1>Problem description</h1>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= @problem.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @problem.user.name %></h6>
+          <p class="card-text"><%= @problem.description %></p>
+          <%= link_to "List of problems", problems_path %>
+          <%= pluralize(@problem.problem_votes_count, "vote") %>
+          <%= button_to problem_votes_path do %>
+            <%= hidden_field_tag 'problem_id', @problem.id %>
+            +1
+          <% end %>
         </div>
+      </div>
     </div>
-    <%= link_to 'More details...', solution_path(solution) %>
-     <% end %>
+
+      <div class="col-sm-6">
+        <% @problem.solutions.each do |solution| %>
+        <div class="container mt-5 card-solution mr-3 mb-1">
+          <div class="row">
+            <div class="col-sm-3 p-3">
+              <div class="card-solution-avatar">
+                  <div class="avatar-medium"></div>
+              </div>
+            </div>
+            <div class="col-sm-6 pl-0 pt-4">
+              <div class="card-solution-profile">
+                <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
+                <p class="date-post-solution">Created on Monday, May 29th</p>
+              </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="btn-group p-3">
+                <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+                <a href="" class="rounded-border btn btn-outline-secondary "><%= button_to solution_votes_path do %>
+                <%= hidden_field_tag 'solution_id', solution.id %>
+                +1
+                <% end %></a>
+                </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card-solution-description">
+                <h3 class="card-solution-title"><%= solution.title %></h3>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="visible-scrollbar">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="card-solution-description">
+                <h3> <%= link_to 'More details...', solution_path(solution) %></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
+
