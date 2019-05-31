@@ -57,3 +57,22 @@
   opacity: 1;
   font-size: 32px;
 }
+
+.btn-home-page {
+  text-align: center;
+}
+.btn-home-page a {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.btn-home-page a:hover {
+  color: white;
+  text-decoration: none;
+  padding : 0 0 2px 10px;
+  border-bottom : 4px solid $yellow;
+}
+

@@ -1,19 +1,19 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <% @problems.each do |problem| %>    
+      <% @problems.each do |problem| %>
         <div class="col-md-4">
           <div class="pb-card w-100 bg-light">
             <div class="d-flex justify-content-between">
               <img src="" alt="" class="pb-card-category">
               <div class="pb-card-user">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
-                <p><%= problem.user.name %></p> 
+                <p><%= problem.user.name %></p>
                 <p><%= problem.created_at.strftime('%d %b %Y')%></p>
               </div>
             </div>
             <h4><%= problem.category.upcase %></h4>
-            
+
             <h3><%= link_to problem.title, problem_path(problem) %></h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
             </p>
@@ -25,6 +25,7 @@
             +1 UP TO VOTE
           <% end %>
             </div>   
+
           </div>
         </div>
       <% end %>
