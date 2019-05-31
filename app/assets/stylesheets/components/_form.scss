@@ -15,12 +15,21 @@
   border-radius: 10px;
   width: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: #303643;
 }
 
-.form-container h1{
-  font-family: Roboto;
-  text-transform: uppercase;
+/*Solution */
+.form-container-solution {
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background: #313643;
+  color: white;
 }
-.roboto {
-  font-family: Roboto;
-}
+
