@@ -1,33 +1,18 @@
-<!-- <div class="container">
-
-  <h2>Your solution.</h2>
-
-  <%= simple_form_for [@problem, @solution] do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-    <% end %>
-  </div>
-  <div class="form-actions">
-    <%= link_to "Back to problem", problem_path(@problem) %>
-  </div>
-</div>
- -->
-
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6 form-container p-5">
-      <h1 class="mt-5 mb-3">Your solution.</h1>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-10 form-container-solution p-5">
+      <h1 class="mt-3 mb-3">Your solution.</h1>
       <%= simple_form_for [@problem, @solution] do |f| %>
       <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.button :submit, class: "btn-primary" %>
-        <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+      <div class="form-inputs mt-2 pr-3 pl-3">
+        <%= f.input :title,
+        input_html: { class:"h3 rounded-border" } %>
+        <%= f.input :description,
+        input_html: { class:"h3 rounded-border" } %>
+        <div class="d-flex flex-column align-items-center">
+        <%= f.button :submit, "Create solution!", class:" h2 btn btn-primary rounded-border btn-lg mt-2 mb-3" %>
+        <%= f.button :button, "Cancel", type: "reset", class:" h2 btn-outline-secondary rounded-border mt-2 mb-3" %>
+        </div>
       </div>
 
       <div class="form-actions">
