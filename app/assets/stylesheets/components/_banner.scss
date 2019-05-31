@@ -1,7 +1,7 @@
 .banner {
+  height: 550px;
   background-size: cover;
   background-position: center;
-  height: 450px;
 }
 
 .banner .chevron-container {
@@ -50,12 +50,12 @@
   color: white;
   opacity: .6;
   font-size: 24px;
-  padding: 15px;
+  padding: 20px;
 }
 
 .fa-chevron-down:hover {
   opacity: 1;
-  font-size: 32px;
+  font-size: 36px;
 }
 
 .btn-home-page {
@@ -64,7 +64,7 @@
 .btn-home-page a {
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 0.1em;
   text-decoration: none;
 }
