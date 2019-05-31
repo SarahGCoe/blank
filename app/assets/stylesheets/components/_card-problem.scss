@@ -15,6 +15,8 @@
   border: 2px solid #e6e6e6;
   border-radius: 10px;
   padding: 35px;
+  margin-top: 30px;
+  height: 520px;
   }
 
   .pb-card h3 {
@@ -23,13 +25,20 @@
     padding: 12px;
     margin-bottom: none;
     font-size: 1rem;
+    }
 
+  .pb-card a{
+    color: #F7B543;
+  &:hover{
+        text-decoration: none;
+        color: #8c8c8c;
+      }
   }
 
   .pb-card h4 {
     padding: 5px;
     font-size: 1.2rem;
-    color: #8c8c8c;
+    color: #808080;
     margin-top: 10px;
   }
   
