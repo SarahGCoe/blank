@@ -12,19 +12,92 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <h1> Welcome <%= current_user.name %> </h1>
+      <h1> Welcome <%= current_user.name %> ! </h1>
+
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <% @problems.each do |problem| %>
-      <%= problem.title %>
-      <%= link_to 'More details...', problem_path(problem) %>
+      <% if @problems.empty? %>
+        <p>Share with us your problems, someone will find you a great solution!</p>
+        <%= link_to '< Start now', problem_path(@problems) %>
+
+      <% else %>
+        <% @problems.each do |problem| %>
+          <div class="col-md-4">
+            <div class="pb-card w-100 bg-light">
+              <div class="d-flex justify-content-between">
+                <img src="" alt="" class="pb-card-category">
+                <div class="pb-card-user">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
+                  <p><%= problem.user.name %></p>
+                  <p><%= problem.created_at.strftime('%d %b %Y')%></p>
+                </div>
+              </div>
+              <h4><%= problem.category.upcase %></h4>
+              <h3><%= problem.title %></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="pb-card-votes">108<br>Votes</div>
+                <button class="btn-warning">CTA</button>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <% @solutions.each do |solution| %>
-      <%= solution.title %>
-      <%= link_to 'More details...', solution_path(solution) %>
+      <% if @solutions.empty? %>
+        <p>Join the community and share a solution!</p>
+        <%= link_to '< Find a solution', problem_path(@problems) %>
+
+      <% else %>
+        <% @solutions.each do |solution| %>
+          <div class="container mt-3 mb-1 mr-5">
+            <div class="card-solution">
+              <div class="row">
+                <div class="col-sm-3 mb-1 pl-5 pt-2">
+                  <div class="card-solution-avatar">
+                      <div class="avatar"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 pl-0 pt-4">
+                  <div class="card-solution-profile">
+                    <p class="date-post-solution">Created on Monday, May 29th</p>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="btn-group p-3">
+                    <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+                    <a href="" class="rounded-border btn btn-outline-secondary"><%= button_to solution_votes_path do %>
+                    <%= hidden_field_tag 'solution_id', solution.id %>
+                    <span class="btn-without-border">+1</span>
+                    <% end %></a>
+                    </div>
+                </div>
+                <div class="col-sm-12 mt-3 ml-1 pl-4">
+                  <div class="card-solution-description">
+                    <h3 class="card-solution-title"><%= solution.title %></h3>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 pl-4">
+                  <div class="visible-scrollbar">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1">
+                  <div class="card-solution-description ">
+                    <%= link_to 'More details...', solution_path(solution) %>
+                  </div>
+                </div>
+              </div>
+             </div>
+          </div>
+        <% end %>
       <% end %>
+
+
     </div>
   </div>
 
@@ -32,4 +105,6 @@
 
 <%= link_to "Back to homepage", root_path %>
 <%= link_to "Read the problems", problems_path %>
+</div>
+
 </div>
