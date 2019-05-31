@@ -10,15 +10,15 @@
       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My ideas</a>
     </li>
   </ul>
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content mt-5 mb-5" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <h1> Welcome <%= current_user.name %> ! </h1>
+      <h3> Welcome <%= current_user.name %> ! </h3>
 
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <% if @problems.empty? %>
         <p>Share with us your problems, someone will find you a great solution!</p>
-        <%= link_to '< Start now', problem_path(@problems) %>
+        <%= link_to '< Start now', problems_path %>
 
       <% else %>
         <% @problems.each do |problem| %>
@@ -26,19 +26,24 @@
             <div class="pb-card w-100 bg-light">
               <div class="d-flex justify-content-between">
                 <img src="" alt="" class="pb-card-category">
-                <div class="pb-card-user">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
-                  <p><%= problem.user.name %></p>
-                  <p><%= problem.created_at.strftime('%d %b %Y')%></p>
+                  <div class="pb-card-user">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
+                    <p><%= @problem.user.name %></p>
+                    <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
+                  </div>
                 </div>
-              </div>
-              <h4><%= problem.category.upcase %></h4>
-              <h3><%= problem.title %></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="pb-card-votes">108<br>Votes</div>
-                <button class="btn-warning">CTA</button>
+                <h4><%= @problem.category.upcase %></h4>
+
+                <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
+                   </div>
+                    <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
+                      <%= hidden_field_tag 'problem_id', @problem.id %>
+                    +1 UP TO VOTE
+                <% end %>
               </div>
             </div>
           </div>
@@ -48,7 +53,7 @@
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% if @solutions.empty? %>
         <p>Join the community and share a solution!</p>
-        <%= link_to '< Find a solution', problem_path(@problems) %>
+        <%= link_to '< Find a solution', problems_path %>
 
       <% else %>
         <% @solutions.each do |solution| %>
