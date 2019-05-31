@@ -46,19 +46,31 @@
               <div class="avatar"></div>
             </div>
           </div>
-          <div class="col-sm-6 pl-0 pt-4">
-            <div class="card-solution-profile">
-              <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
-              <p class="date-post-solution">Created on Monday, May 29th</p>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="btn-group p-3">
-              <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
-              <a href="" class="rounded-border btn btn-outline-secondary"><%= button_to solution_votes_path do %>
-                <%= hidden_field_tag 'solution_id', solution.id %>
-                <span class="btn-without-border">+1</span>
-                <% end %></a>
+
+        <% @problem.solutions.each do |solution| %>
+        <div class="container mt-3 mb-1 mr-5">
+          <div class="card-solution">
+            <div class="row">
+              <div class="col-sm-3 mb-1 pl-5 pt-2">
+                <div class="card-solution-avatar">
+                    <div class="avatar"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 pl-0 pt-4">
+                <div class="card-solution-profile">
+                  <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
+                  <p class="date-post-solution">Created on Monday, May 29th</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="btn-group p-3">
+                  <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+                   <%= button_to(solution_votes_path, class:"rounded-border btn btn-outline-secondary", method: :post) do %>
+                  <%= hidden_field_tag 'solution_id', solution.id %>
+                  <span class="btn-without-border">+1</span>
+                  <% end %>
+                  </div>
+
               </div>
             </div>
             <div class="col-sm-12 mt-3 ml-1 pl-4">
