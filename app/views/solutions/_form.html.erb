@@ -10,15 +10,13 @@
         <%= f.input :description,
         input_html: { class:"h3 rounded-border" } %>
         <div class="d-flex flex-column align-items-center">
-        <%= f.button :submit, "Create solution!", class:" h2 btn btn-primary rounded-border btn-lg mt-2 mb-3" %>
-        <%= f.button :button, "Cancel", type: "reset", class:" h2 btn-outline-secondary rounded-border mt-2 mb-3" %>
+        <%= f.button :submit, "Create solution!", class:"h2 btn btn-primary rounded-border btn-lg mt-2 mb-3" %>
+        <%= link_to "Cancel", problem_path(@problem), class:"btn btn-outline-secondary rounded-border mt-2 mb-3" %>
         </div>
-      </div>
-
-      <div class="form-actions">
-        <%= link_to "Back to problem", problem_path(@problem) %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
