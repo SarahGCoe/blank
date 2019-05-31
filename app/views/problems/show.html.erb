@@ -2,91 +2,95 @@
   <div class="row">
     <div class="col-md-6">
       <div class="solution-main-title">
-        <h3 class="solution-title mb-1 pl-5 pt-2">Solutions .</h3>
+        <h3 class="solution-title mb-1 pl-5 pt-2">Problems.</h3>
       </div>
-        <div class="pb-card w-100 bg-light">
-          <div class="d-flex justify-content-between">
-            <img src="" alt="" class="pb-card-category">
-            <div class="pb-card-user">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
-              <p><%= @problem.user.name %></p> 
-              <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
-            </div> 
+      <div class="pb-card w-100 bg-light">
+        <div class="d-flex justify-content-between">
+          <img src="" alt="" class="pb-card-category">
+          <div class="pb-card-user">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
+            <p><%= @problem.user.name %></p>
+            <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
           </div>
-          <h4><%= @problem.category.upcase %></h4>
-          
-          <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-          </p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
-             </div>
-              <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
+        </div>
+        <h4><%= @problem.category.upcase %></h4>
+
+        <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
+          </div>
+          <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
           <%= hidden_field_tag 'problem_id', @problem.id %>
           +1 UP TO VOTE
-        <% end %>
-          </div>   
+          <% end %>
         </div>
       </div>
+    </div>
 
-
-
-      <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-6">
+      <div class="row">
+       <div class="col-sm-12 mb-1 pl-5 pt-2">
+        <div class="solution-main-title">
+          <h3 class="solution-title">Solutions.</h3>
+        </div>
+      </div>
+    </div>
+    <% @problem.solutions.each do |solution| %>
+    <div class="container mt-3 mb-1 mr-5">
+      <div class="card-solution">
         <div class="row">
-           <div class="col-sm-12 mb-1 pl-5 pt-2">
-              <div class="solution-main-title">
-                <h3 class="solution-title">Solutions .</h3>
+          <div class="col-sm-3 mb-1 pl-5 pt-2">
+            <div class="card-solution-avatar">
+              <div class="avatar"></div>
+            </div>
+          </div>
+          <div class="col-sm-6 pl-0 pt-4">
+            <div class="card-solution-profile">
+              <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
+              <p class="date-post-solution">Created on Monday, May 29th</p>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="btn-group p-3">
+              <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+              <a href="" class="rounded-border btn btn-outline-secondary"><%= button_to solution_votes_path do %>
+                <%= hidden_field_tag 'solution_id', solution.id %>
+                <span class="btn-without-border">+1</span>
+                <% end %></a>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-3 ml-1 pl-4">
+              <div class="card-solution-description">
+                <h3 class="card-solution-title"><%= solution.title %></h3>
+              </div>
+            </div>
+
+            <div class="col-sm-12 pl-4">
+              <div class="visible-scrollbar">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1">
+              <div class="card-solution-description ">
+                <%= link_to 'More details...', solution_path(solution) %>
               </div>
             </div>
           </div>
-        <% @problem.solutions.each do |solution| %>
-        <div class="container mt-3 mb-1 mr-5">
-          <div class="card-solution">
-            <div class="row">
-              <div class="col-sm-3 mb-1 pl-5 pt-2">
-                <div class="card-solution-avatar">
-                    <div class="avatar"></div>
-                </div>
-              </div>
-              <div class="col-sm-6 pl-0 pt-4">
-                <div class="card-solution-profile">
-                  <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
-                  <p class="date-post-solution">Created on Monday, May 29th</p>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                  <div class="btn-group p-3">
-                  <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
-                  <a href="" class="rounded-border btn btn-outline-secondary"><%= button_to solution_votes_path do %>
-                  <%= hidden_field_tag 'solution_id', solution.id %>
-                  <span class="btn-without-border">+1</span>
-                  <% end %></a>
-                  </div>
-              </div>
-              <div class="col-sm-12 mt-3 ml-1 pl-4">
-                <div class="card-solution-description">
-                  <h3 class="card-solution-title"><%= solution.title %></h3>
-                </div>
-              </div>
-
-              <div class="col-sm-12 pl-4">
-                <div class="visible-scrollbar">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
-                </div>
-              </div>
-
-              <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1">
-                <div class="card-solution-description ">
-                  <%= link_to 'More details...', solution_path(solution) %>
-                </div>
-              </div>
-            </div>
-           </div>
         </div>
+      </div>
       <% end %>
+      <div class="col-12 d-flex justify-content-center mt-3">
+        <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-dark") do %>
+        Add a solution
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
     </div>
   </div>
-</div>
 
 
 
