@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #ECECEC;
-  opacity: 0.8
+  opacity: 0.8;
+  z-index: 1000;
 }
 
 .navbar h1 {
