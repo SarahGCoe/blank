@@ -2,6 +2,7 @@ require 'pg_search'
 class ProblemsController < ApplicationController
   helper_method :sort_direction
   before_action :authenticate_user!, only: [:show]
+
   def index
     if params[:search].present?
       @problems = Problem.search_by_attr(params[:search])
@@ -12,12 +13,15 @@ class ProblemsController < ApplicationController
     end
 
     if params[:filters].present?
-      session[:category] =  params[:filters][:category]
+      session[:category] = params[:filters][:category]
+# raise
     end
 
     if !session[:category].blank?
-      @problems = @problems.where(:category => session[:category])
+      @problems = @problems.where(:category => Category.find_by_name(session[:category]))
+
     end
+
   end
 
   def show
