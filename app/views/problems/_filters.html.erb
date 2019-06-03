@@ -1,0 +1,13 @@
+
+<div class="container d-flex justify-content-center">
+  <div class="sort_icon">
+    <%= link_to problems_path(sort: "votes", direction: 'asc') do %>
+    <i class="fas fa-sort-up"></i> votes
+    <% end %>
+  </div>
+  <div class="sort_icon ml-1">
+    <%= link_to problems_path(sort: "votes", direction: 'desc') do %>
+    <i class="fas fa-sort-down"></i> votes
+    <% end %>
+  </div>
+</div>
