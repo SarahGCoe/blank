@@ -1,0 +1,12 @@
+<%= filtered_form_for(@problem, display_only: [:category]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :category, collection: Problem::CATEGORY %>
+    <%= f.input :sticky %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
