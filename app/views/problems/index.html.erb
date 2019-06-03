@@ -15,13 +15,15 @@
               </div>
           </div>
           <h4><%= problem.category.upcase %></h4>
-
-          <h3><%= link_to problem.title, problem_path(problem) %></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-          </p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="pb-card-votes"> <%= pluralize(problem.problem_votes_count, "vote") %>
-            </div>
+            <h3><%= link_to problem.title, problem_path(problem) %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
+            </p>
+           <div class="card-solution-description">
+              <%= link_to 'More details...', problem_path(problem) %>
+           </div>
+           <div class="d-flex justify-content-between align-items-center">
+             <div class="pb-card-votes"> <%= pluralize(problem.problem_votes_count, "vote") %>
+           </div>
             <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
             <%= hidden_field_tag 'problem_id', problem.id %>
             +1 UP TO VOTE
