@@ -20,6 +20,7 @@
             <img src="" alt="" class="pb-card-category">
             <div class="pb-card-user">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
+               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
               <p><%= problem.user.name %></p>
               <p><%= problem.created_at.strftime('%d %b %Y')%></p>
             </div>
