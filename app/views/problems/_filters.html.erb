@@ -1,13 +1,18 @@
-
-<div class="container d-flex justify-content-center">
-  <div class="sort_icon">
+<div class="container-filters pt-2 pb-2 align-items-center">
+<div class="container d-flex justify-content-center align-items-center">
+    <%= simple_form_for :filters, url: problems_path, method: :get do |f| %>
+    <%= f.input :category, label:"category", collection: Problem::CATEGORY %>
+    <%= f.button :submit, class:"btn btn-sm btn-dark" %>
+  <% end %>
+  <div class="sort_icon ml-5">
     <%= link_to problems_path(sort: "votes", direction: 'asc') do %>
     <i class="fas fa-sort-up"></i> votes
     <% end %>
   </div>
-  <div class="sort_icon ml-1">
+  <div class="sort_icon ml-2">
     <%= link_to problems_path(sort: "votes", direction: 'desc') do %>
     <i class="fas fa-sort-down"></i> votes
     <% end %>
   </div>
+</div>
 </div>

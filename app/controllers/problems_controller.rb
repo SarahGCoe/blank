@@ -10,6 +10,14 @@ class ProblemsController < ApplicationController
     else
       @problems = Problem.all
     end
+
+    if params[:filters].present?
+      session[:category] =  params[:filters][:category]
+    end
+
+    if !session[:category].blank?
+      @problems = @problems.where(:category => session[:category])
+    end
   end
 
   def show
