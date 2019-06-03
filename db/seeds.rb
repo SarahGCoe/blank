@@ -26,12 +26,12 @@ category_food = Category.new(name: 'Food', img_url: url3)
 category_food.save!
 
 puts 'Creating one category'
-url4 = "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559571145/teamwork_et4owh.png"
+url4 = "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559573756/digital-campaign_rdy6uq.png"
 category_social = Category.new(name: 'Social', img_url: url4)
 category_social.save!
 
 puts 'Creating one category'
-url5 = "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559571107/gps_buzg9d.png"
+url5 = "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559573748/smarthome_lrm2bv.png"
 category_tech = Category.new(name: 'Tech', img_url: url5)
 category_tech.save!
 
@@ -43,8 +43,8 @@ category_education.save!
 
 
 
-puts 'Creating 6 Users...'
-6.times do |i|
+puts 'Creating 1 Users...'
+1.times do |i|
   user = User.create!(name: Faker::Science.scientist,
     email: Faker::Internet.email,
     password: "azerty")
@@ -56,42 +56,27 @@ puts 'Creating 6 Users...'
     problem.user = user
     problem.save!
 
+       puts 'Creating 2 Solutions...'
+    2.times do |k|
+    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
+      description: Faker::Movies::HarryPotter.quote)
+    solution.user = user
+    solution.problem = problem
+    solution.save!
+    end
+  end
+
+1.times do |i|
+  user = User.create!(name: Faker::Science.scientist,
+    email: Faker::Internet.email,
+    password: "azerty")
+
     puts 'Creating 1 Problems...'
       problem = Problem.new(title: Faker::Book.title,
       description: Faker::Quote.famous_last_words,
       category: category_environment)
     problem.user = user
     problem.save!
-
-    puts 'Creating 1 Problems...'
-      problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
-      category: category_food)
-    problem.user = user
-    problem.save!
-
-    puts 'Creating 1 Problems...'
-      problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
-      category: category_tech)
-    problem.user = user
-    problem.save!
-
-    puts 'Creating 1 Problems...'
-      problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
-      category: category_lifestyle)
-    problem.user = user
-    problem.save!
-
-    puts 'Creating 1 Problems...'
-      problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
-      category: category_social)
-    problem.user = user
-    problem.save!
-
-
 
     puts 'Creating 2 Solutions...'
     2.times do |k|
@@ -101,6 +86,94 @@ puts 'Creating 6 Users...'
     solution.problem = problem
     solution.save!
     end
-  
-end
+  end 
+
+1.times do |i|
+  user = User.create!(name: Faker::Science.scientist,
+    email: Faker::Internet.email,
+    password: "azerty")
+
+    puts 'Creating 1 Problems...'
+      problem = Problem.new(title: Faker::Book.title,
+      description: Faker::Quote.famous_last_words,
+      category: category_food)
+    problem.user = user
+    problem.save!
+
+    puts 'Creating 2 Solutions...'
+    2.times do |k|
+    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
+      description: Faker::Movies::HarryPotter.quote)
+    solution.user = user
+    solution.problem = problem
+    solution.save!
+    end
+  end 
+
+1.times do |i|
+  user = User.create!(name: Faker::Science.scientist,
+    email: Faker::Internet.email,
+    password: "azerty")
+
+    puts 'Creating 1 Problems...'
+      problem = Problem.new(title: Faker::Book.title,
+      description: Faker::Quote.famous_last_words,
+      category: category_tech)
+    problem.user = user
+    problem.save!
+
+    puts 'Creating 2 Solutions...'
+    2.times do |k|
+    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
+      description: Faker::Movies::HarryPotter.quote)
+    solution.user = user
+    solution.problem = problem
+    solution.save!
+    end
+  end
+
+1.times do |i|
+  user = User.create!(name: Faker::Science.scientist,
+    email: Faker::Internet.email,
+    password: "azerty")
+
+    puts 'Creating 1 Problems...'
+      problem = Problem.new(title: Faker::Book.title,
+      description: Faker::Quote.famous_last_words,
+      category: category_lifestyle)
+    problem.user = user
+    problem.save!
+
+    puts 'Creating 2 Solutions...'
+    2.times do |k|
+    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
+      description: Faker::Movies::HarryPotter.quote)
+    solution.user = user
+    solution.problem = problem
+    solution.save!
+    end
+  end
+
+1.times do |i|
+  user = User.create!(name: Faker::Science.scientist,
+    email: Faker::Internet.email,
+    password: "azerty")
+
+    puts 'Creating 1 Problems...'
+      problem = Problem.new(title: Faker::Book.title,
+      description: Faker::Quote.famous_last_words,
+      category: category_social)
+    problem.user = user
+    problem.save!
+
+    puts 'Creating 2 Solutions...'
+    2.times do |k|
+    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
+      description: Faker::Movies::HarryPotter.quote)
+    solution.user = user
+    solution.problem = problem
+    solution.save!
+    end
+  end
+
 
