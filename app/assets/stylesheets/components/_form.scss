@@ -80,3 +80,25 @@
   opacity: 1;
 }
 
+/*Filters */
+.container-filters {
+  width: 100%;
+
+  .form-group {
+  margin: 0 0 5px 0;
+  }
+  .form-control {
+    height: 30px;
+    font-family: "Roboto Mono", "monospace";
+    font-size: 14px;
+  }
+  .form-control-label {
+  margin: 0 0 5px 0;
+  font-family: "Roboto Mono", "monospace";
+  font-size: 14px;
+  }
+  .btn {
+  font-family: "Roboto Mono", "monospace";
+  border-radius: 4px;
+  }
+}
