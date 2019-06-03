@@ -1,6 +1,7 @@
 class Problem < ApplicationRecord
   CATEGORY = %w[Environment Food Lifestyle Education Social Tech]
   belongs_to :user
+  belongs_to :category
   has_many :solutions, dependent: :destroy
 
   has_many :problem_votes
