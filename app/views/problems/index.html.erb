@@ -5,7 +5,7 @@
         <div class="col-md-4">
           <div class="pb-card w-100 bg-light">
             <div class="d-flex justify-content-between">
-              <img src="" alt="" class="pb-card-category">
+              <%= cl_image_tag("sample.jpg", width: 50, height: 50, crop: :fill)%>
               <div class="pb-card-user">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
                 <p><%= problem.user.name %></p>
@@ -32,3 +32,5 @@
     </div>
   </div>
 </div>
+
+<a href="https://icons8.com/icon/18066/feuille" style=>Feuille icon by Icons8</a>
