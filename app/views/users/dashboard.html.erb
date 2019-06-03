@@ -17,7 +17,11 @@
       </div>
     <div class="col-sm-5">
         <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4" >
-          <div class="avatar-large"></div>
+          <div class="avatar-large">
+            <% if !current_user.photo.nil? %>
+              <%#= cl_image_path current_user.photo, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          </div>
           <h3><%= current_user.name %></h3>
           <%= link_to "Change your password", edit_user_registration_path %>
           <br>

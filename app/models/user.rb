@@ -12,5 +12,4 @@ class User < ApplicationRecord
   has_many :problem_votes, through: :problems
 
   validates :name, presence: true
-
 end
