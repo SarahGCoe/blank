@@ -1,0 +1,107 @@
+//################ BLACK UNDERLINE SLIDE ##################//
+.link-back-to-problems a {
+  text-decoration: none;
+  color: $gray;
+}
+
+.link-back-to-problems a:hover {
+  text-decoration: none;
+  color: $gray;
+}
+
+.link-back-to-problems a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width .3s;
+  text-decoration: none;
+}
+
+.link-back-to-problems a:hover::after {
+  width: 10%;
+  text-decoration: none;
+  //transition: width .3s;
+}
+
+.link-back-to-problem a:hover::after {
+  width: 8%;
+  text-decoration: none;
+  // transition: width .3s;
+}
+
+.link-back-to-problem a {
+  text-decoration: none;
+  color: $gray;
+}
+
+.link-back-to-problem a:hover {
+  text-decoration: none;
+  color: $gray;
+}
+
+.link-back-to-problem a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width .3s;
+  text-decoration: none;
+}
+
+.link-back-to-problems a:hover::after {
+  width: 10%;
+  text-decoration: none;
+  transition: width .3s;
+}
+
+//################ YELLOW UNDERLINE SLIDE / FONT WHITE ##################//
+
+.btn-home-page {
+  text-align: center;
+}
+.btn-home-page a {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition-property: border-bottom;
+  transition-duration: 0.3s;
+  transition-property: padding;
+  transition-duration: 0.5s ease;
+}
+
+.btn-home-page a:hover {
+  color: white;
+  text-decoration: none;
+  padding : 0 0 2px 10px;
+  border-bottom : 4px solid $yellow;
+}
+
+//################ YELLOW UNDERLINE SLIDE / FONT BLACK ##################//
+
+.btn-underline-yellow-black a {
+  text-align: center;
+}
+
+.btn-underline-yellow-black a {
+  text-align: center;
+  color: $gray;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition-property: border-bottom;
+  transition-duration: 0.3s;
+  transition-property: padding;
+  transition-duration: 0.5s ease;
+}
+
+.btn-underline-yellow-black a:hover {
+  color: black;
+  text-decoration: none;
+  padding : 0 0 2px 10px;
+  border-bottom : 4px solid $yellow;
+}

@@ -54,8 +54,6 @@
   transition-duration: 0.3s;
   transition-property: padding;
   transition-duration: 0.5s ease;
-
-
 }
 
 .btn-home-page a:hover {
@@ -104,4 +102,8 @@
   40% {
     transform: rotate(-45deg) translate(0, 0);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

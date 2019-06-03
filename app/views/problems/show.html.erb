@@ -33,6 +33,7 @@
        <div class="col-sm-12 mb-1 pl-5 pt-2">
         <div class="solution-main-title">
           <h3 class="solution-title">Solutions .</h3>
+          <button type="button" class="btn btn-lg btn-danger notification-show position-absolute"><%= @problem.solutions.count %></button>
         </div>
       </div>
     </div>
@@ -80,8 +81,8 @@
       </div>
       <% end %>
       <div class="col-12 d-flex justify-content-center mt-3">
-        <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-dark") do %>
-        Add a solution
+        <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-outline-warning") do %>
+            Add a solution
         <% end %>
       </div>
     </div>
