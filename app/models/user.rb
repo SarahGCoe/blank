@@ -4,11 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :photo, PhotoUploader
+
   has_many :problems
   has_many :solutions
   has_many :solution_votes, through: :solutions
   has_many :problem_votes, through: :problems
 
   validates :name, presence: true
-  validates :photo, presence: true
+
 end
