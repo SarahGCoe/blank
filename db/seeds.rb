@@ -86,7 +86,7 @@ puts 'Creating 1 Users...'
     solution.problem = problem
     solution.save!
     end
-  end 
+  end
 
 1.times do |i|
   user = User.create!(name: Faker::Science.scientist,
@@ -94,11 +94,13 @@ puts 'Creating 1 Users...'
     password: "azerty")
 
     puts 'Creating 1 Problems...'
+      3.times do |i|
       problem = Problem.new(title: Faker::Book.title,
       description: Faker::Quote.famous_last_words,
       category: category_food)
     problem.user = user
     problem.save!
+  end
 
     puts 'Creating 2 Solutions...'
     2.times do |k|
@@ -108,7 +110,7 @@ puts 'Creating 1 Users...'
     solution.problem = problem
     solution.save!
     end
-  end 
+  end
 
 1.times do |i|
   user = User.create!(name: Faker::Science.scientist,
