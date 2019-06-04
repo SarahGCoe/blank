@@ -5,8 +5,10 @@
     </div>
     <h2 class="ml14">
       <span class="text-wrapper">
-        <span class="letters"><%= link_to "Explore now", problems_path %></span>
+        <%= link_to(problems_path, style:"text-decoration:none; color:white;") do %>
+        <span class="letters">Explore now</span>
         <span class="line"></span>
+        <% end %>
       </span>
     </h2>
 
@@ -70,7 +72,7 @@
               <%= hidden_field_tag 'problem_id', problem.id %>
               +1 UPVOTE
             <% end %>
-            </div>  
+            </div>
         </div>
       </div>
       <% end %>
