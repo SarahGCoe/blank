@@ -9,16 +9,6 @@
         <div class="col-md-4">
           <div class="pb-card w-100 bg-white h-95 hovering">
 
-            <div class="d-flex justify-content-between">
-              <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill, class:"pb-card-category position-relative")%>
-              <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
-              <div class="pb-card-user">
-                <% if !current_user.photo.nil? %>
-                  <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
-                <% end %>
-                <p><%= problem.user.name %></p>
-                <p><%= problem.created_at.strftime('%d %b %Y')%></p>
-              </div>
 
           <div class="d-flex justify-content-between">
             <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill, class:"pb-card-category position-relative")%>
