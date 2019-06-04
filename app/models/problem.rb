@@ -12,7 +12,7 @@ class Problem < ApplicationRecord
 
   include PgSearch
   pg_search_scope :search_by_attr,
-                  against: [:title, :description, :category],
+                  against: [:title, :description],
                   using: {
                     tsearch: { prefix: true }
                   }
