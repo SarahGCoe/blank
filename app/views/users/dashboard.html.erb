@@ -10,122 +10,128 @@
       <a class="nav-link text-secondary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My ideas</a>
     </li>
   </ul>
+
   <div class="tab-content mt-5 mb-5" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div class="col-sm-7">
-        <h3> Welcome <%= current_user.name %> ! </h3>
+      <div class="col-sm-12 text-center">
+        <h3> WELCOME <%= current_user.name.upcase %> ! </h3>
       </div>
-    <div class="col-sm-5">
-        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4" >
-          <div class="avatar-large">
+
+      <div class="col-sm-5">
+        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4 position-absolute" >
+          <div class="avatar-large text-center position-relative">
             <% if !current_user.photo.nil? %>
-              <%#= cl_image_path current_user.photo, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill %>
             <% end %>
           </div>
-          <h3><%= current_user.name %></h3>
-          <%= link_to "Change your password", edit_user_registration_path %>
+          <h3 class="card-profile-name mt-4 mb-4"><%= current_user.name %></h3>
+          <div class="btn-underline-yellow-black text-center">
+            <%= link_to "Change your password", edit_user_registration_path, class:"btn-underline-yellow-black"%>
+          </div>
           <br>
-          <%= link_to "Delete my account", edit_user_registration_path %>
+          <div class="btn-underline-yellow-black text-center">
+            <%= link_to "Delete my account", edit_user_registration_path %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <% if @problems.empty? %>
-        <p>Share with us your problems, someone will find you a great solution!</p>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <% if @problems.empty? %>
+      <p>Share with us your problems, someone will find you a great solution!</p>
         <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
           Start now
-        <% end %>
-
-      <% else %>
-        <% @problems.each do |problem| %>
-          <div class="col-md-4">
-            <div class="pb-card w-100 bg-light">
-              <div class="d-flex justify-content-between">
-                <img src="" alt="" class="pb-card-category">
-                  <div class="pb-card-user">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
-                    <p><%= @problem.user.name %></p>
-                    <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
-                  </div>
+      <% end %>
+    <% else %>
+      <% @problems.each do |problem| %>
+        <div class="col-md-4">
+          <div class="pb-card w-100 bg-light">
+            <div class="d-flex justify-content-between">
+              <img src="" alt="" class="pb-card-category">
+                <div class="pb-card-user">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
+                  <p><%= @problem.user.name %></p>
+                  <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
                 </div>
-                <h4><%= @problem.category.upcase %></h4>
+            </div>
+            <h4><%= @problem.category.upcase %></h4>
 
-                <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
-                   </div>
-                    <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
-                      <%= hidden_field_tag 'problem_id', @problem.id %>
-                    +1 UP TO VOTE
-                <% end %>
+            <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
               </div>
+                  <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
+                    <%= hidden_field_tag 'problem_id', @problem.id %>
+                    +1 UP TO VOTE
+                  <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
       <% end %>
     </div>
+
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% if @solutions.empty? %>
         <p>Join the community and share a solution!</p>
-        <%= link_to '< Find a solution', problems_path %>
-
+        <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
+          Find a solution
+        <% end %>
       <% else %>
-        <% @solutions.each do |solution| %>
+
+       <% @solutions.each do |solution| %>
           <div class="container mt-3 mb-1 mr-5">
             <div class="card-solution">
               <div class="row">
-                <div class="col-sm-3 mb-1 pl-5 pt-2">
+                <div class="col-sm-4 mb-1 pl-5 pt-3">
                   <div class="card-solution-avatar">
-                      <div class="avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path @current_user.photo, height: 300, width: 400, crop: :fill %>')">
+                      <% if !current_user.photo.nil? %>
+                        <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+                      <% end %>
                   </div>
                 </div>
-                <div class="col-sm-6 pl-0 pt-4">
+                <div class="col-sm-4 pl-3 pt-4">
                   <div class="card-solution-profile">
+                    <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
                     <p class="date-post-solution">Created on Monday, May 29th</p>
                   </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="btn-group p-3">
+                <div class="col-sm-4 pl-5">
+                  <div class="btn-group p-3">
                     <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
                     <a href="" class="rounded-border btn btn-outline-secondary"><%= button_to solution_votes_path do %>
-                    <%= hidden_field_tag 'solution_id', solution.id %>
-                    <span class="btn-without-border">+1</span>
-                    <% end %></a>
+                      <%= hidden_field_tag 'solution_id', solution.id %>
+                      <span class="btn-without-border">+1</span>
+                      <% end %></a>
                     </div>
-                </div>
-                <div class="col-sm-12 mt-3 ml-1 pl-4">
-                  <div class="card-solution-description">
-                    <h3 class="card-solution-title"><%= solution.title %></h3>
                   </div>
-                </div>
-
-                <div class="col-sm-12 pl-4">
-                  <div class="visible-scrollbar">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+                  <div class="col-sm-12 mt-3 ml-1 pl-4">
+                    <div class="card-solution-description">
+                      <h3 class="card-solution-title"><%= solution.title %></h3>
+                    </div>
                   </div>
-                </div>
-
-                <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1">
-                  <div class="card-solution-description ">
-                    <%= link_to 'More details...', solution_path(solution) %>
+                  <div class="col-sm-12 pl-4">
+                    <div class="visible-scrollbar">
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1 mb-4">
+                    <div class="card-solution-description ">
+                      <%= link_to 'More details...', solution_path(solution) %>
+                    </div>
                   </div>
                 </div>
               </div>
-             </div>
-          </div>
+            </div>
         <% end %>
       <% end %>
-
-
+          </div>
     </div>
-  </div>
 
-</ul>
-
-  <div class="container">
+<div class="container">
+  <div class="col-sm-12 text-center">
     <div class="btn-underline-yellow-black mt-5 text-center">
       <%= link_to "Back to homepage", root_path %>
     </div>
@@ -133,4 +139,9 @@
       <%= link_to "Read the problems", problems_path %>
     </div>
   </div>
+</div>
+</div>
+</div>
+</div>
+
 
