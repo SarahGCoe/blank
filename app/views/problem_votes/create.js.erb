@@ -1,0 +1,8 @@
+document.querySelectorAll('.vote-up-<%=@problem.id%>').forEach((button)=> {
+  const voteCount = document.querySelector('.vote-count-<%=@problem.id%>');
+  voteCount.innerHTML = '<%= pluralize(@problem.problem_votes_count, "vote") %>';
+})
+
+
+
+

@@ -1,0 +1,10 @@
+    <div class="d-flex justify-content-between align-items-center">
+     <div class='pb-card-votes vote-count-<%=problem.id%>'> <%= pluralize(problem.problem_votes_count, "vote") %>
+     </div>
+     <div class="vote-up-<%=problem.id%>">
+       <%= button_to(problem_votes_path, class:'rounded-border btn btn-warning text-light', remote: true) do %>
+       <%= hidden_field_tag 'problem_id', problem.id %>
+       +1 UPVOTE
+       <% end %>
+     </div>
+   </div>
