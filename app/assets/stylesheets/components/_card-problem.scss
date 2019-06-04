@@ -16,7 +16,7 @@
   border-radius: 10px;
   padding: 35px;
   margin-top: 30px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  // box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
   .pb-card h3 {
@@ -95,4 +95,12 @@
 
 .h-95 {
   height: 95%;
+}
+.hovering {
+  transform: scale(0.98);
+  transition: box-shadow 0.5s, transform 0.5s;
+  &:hover {
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+  }
 }
