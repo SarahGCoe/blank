@@ -1,7 +1,7 @@
 <div class="container-show-solution d-flex justify-content-center">
   <div class="container col-10">
     <div class="row d-flex justify-content-center pl-2 pr-2">
-      <div class="col-sm-7 d-flex flex-column justify-content-start pl-5 h-80" style="height: 380px;">
+      <div class="col-sm-7 d-flex flex-column justify-content-start pl-5">
         <div class="main-title mt-4 mb-3">
           <h2><%= @solution.title %></h2>
         </div>
@@ -10,6 +10,7 @@
         </div>
         <div>
           <p><%= @solution.description %></p>
+          <%= cl_image_tag @solution.photo, crop: :fill, class:"solution-photo", :default_image => "solution" %>
         </div>
       </div>
 
@@ -17,29 +18,12 @@
         <div class="card-profile-entrepreneur text-center mt-5 ml-5 p-3 pl-4 position-absolute" >
           <div class="avatar-large text-center position-relative p-3">
             <% if !current_user.photo.nil? %>
-              <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :thumb, gravity: :face, class:"avatar-large" %>
+              <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :thumb, gravity: :face, class:"avatar" %>
             <% end %>
           </div>
           <h3><%= @solution.user.name %></h3>
           <p>User description</p>
         </div>
-      </div>
-      <div class="col-sm-12 mt-5">
-      </div>
-
-      <div class="col-sm-12 mt-5">
-      </div>
-
-      <div class="col-sm-12 mt-5">
-      </div>
-
-      <div class="col-sm-12 mt-5">
-      </div>
-
-      <div class="col-sm-12 mt-5">
-      </div>
-
-      <div class="col-sm-12 mt-5">
       </div>
 
       <div class="col-sm-12 mt-5">
