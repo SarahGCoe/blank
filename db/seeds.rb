@@ -73,7 +73,7 @@ puts 'Creating 1 Users...'
 
     puts 'Creating 1 Problems...'
       problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolore, in saepe necessitatibus nihil sed eveniet aliquid! Cupiditate ex dolor, iure aliquid accusantium modi, consectetur, veritatis mollitia, adipisci architecto ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolore, in saepe necessitatibus nihil sed eveniet aliquid! Cupiditate ex dolor, iure aliquid accusantium modi, consectetur, veritatis mollitia, adipisci architecto ut.",
       category: category_environment)
     problem.user = user
     problem.save!
