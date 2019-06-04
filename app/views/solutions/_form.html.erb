@@ -5,12 +5,14 @@
       <%= simple_form_for [@problem, @solution] do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs mt-2 pr-5 pl-5">
-        <%= f.input :title,
+        <%= f.input :title, label:"Give a title to your solution",
         input_html: { class:"h3 rounded-border" } %>
-        <%= f.input :description,
+        <%= f.input :description,label:"Give us more details about your solution",
+        input_html: { class:"h3 rounded-border" } %>
+        <%= f.input :target, label:"Who is concerned by your solution?",
         input_html: { class:"h3 rounded-border" } %>
         <div class="d-flex flex-column align-items-center">
-        <%= f.button :submit, "Create solution!", class:"h2 btn btn-primary rounded-border btn-lg mt-2 mb-3" %>
+        <%= f.button :submit, "Create solution!", class:"h2 btn-outline-warning rounded-border btn-lg mt-2" %>
         <%= link_to "Cancel", problem_path(@problem), class:"btn btn-outline-secondary rounded-border mt-2 mb-3" %>
         </div>
       </div>
