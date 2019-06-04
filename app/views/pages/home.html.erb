@@ -5,8 +5,10 @@
     </div>
     <h2 class="ml14">
       <span class="text-wrapper">
-        <span class="letters"><%= link_to "Explore now", problems_path %></span>
+        <%= link_to(problems_path, style:"text-decoration:none; color:white;") do %>
+        <span class="letters">Explore now</span>
         <span class="line"></span>
+        <% end %>
       </span>
     </h2>
 
@@ -45,12 +47,14 @@
     <div class="row">
       <% @problems.each do |problem| %>
       <div class="col-md-4">
-        <div class="pb-card w-100 bg-light">
+        <div class="pb-card w-100 bg-white">
           <div class="d-flex justify-content-between">
             <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill)%>
             <div class="pb-card-user">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
+                <% if !current_user.photo.nil? %>
+                  <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+                <% end %>
               <p><%= problem.user.name %></p>
               <p><%= problem.created_at.strftime('%d %b %Y')%></p>
             </div>
@@ -70,7 +74,7 @@
               <%= hidden_field_tag 'problem_id', problem.id %>
               +1 UPVOTE
             <% end %>
-            </div>  
+            </div>
         </div>
       </div>
       <% end %>

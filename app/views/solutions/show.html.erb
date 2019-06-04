@@ -1,22 +1,45 @@
 <div class="container-show-solution d-flex justify-content-center">
   <div class="container col-10">
-    <div class="row">
-
-      <div class="col-sm-7">
-        <div class="main-title mt-4 ml-5 mb-3">
+    <div class="row d-flex justify-content-center pl-2 pr-2">
+      <div class="col-sm-7 d-flex flex-column justify-content-start pl-5 h-80" style="height: 380px;">
+        <div class="main-title mt-4 mb-3">
           <h2><%= @solution.title %></h2>
         </div>
-        <div class="main-title ml-5">
+        <div id="target">
+          <p><span>FOR: </span><%= @solution.target %></p>
+        </div>
+        <div>
           <p><%= @solution.description %></p>
         </div>
       </div>
 
       <div class="col-sm-5">
-        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4" >
-          <div class="avatar-large"></div>
+        <div class="card-profile-entrepreneur text-center mt-5 ml-5 p-3 pl-4 position-absolute" >
+          <div class="avatar-large text-center position-relative p-3">
+            <% if !current_user.photo.nil? %>
+              <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :thumb, gravity: :face, class:"avatar-large" %>
+            <% end %>
+          </div>
           <h3><%= @solution.user.name %></h3>
-          <p><%= @solution.description %></p>
+          <p>User description</p>
         </div>
+      </div>
+      <div class="col-sm-12 mt-5">
+      </div>
+
+      <div class="col-sm-12 mt-5">
+      </div>
+
+      <div class="col-sm-12 mt-5">
+      </div>
+
+      <div class="col-sm-12 mt-5">
+      </div>
+
+      <div class="col-sm-12 mt-5">
+      </div>
+
+      <div class="col-sm-12 mt-5">
       </div>
 
       <div class="col-sm-12 mt-5">
@@ -31,11 +54,11 @@
         </div>
       </div>
 
-      <div class="col-sm-12 ml-5">
-        <div class="btn-underline-yellow-black mt-5 text-center">
+      <div class="col-sm-12">
+        <div class="btn-underline-yellow-black mt-3 text-center">
           <%= link_to "Back to problem",problem_path(@solution.problem) %>
         </div>
-        <div class="btn-underline-yellow-black mt-2 mb-5 text-center">
+        <div class="btn-underline-yellow-black mt-2 mb-3 text-center">
           <%= link_to "Back to problems list", problems_path %>
         </div>
       </div>
