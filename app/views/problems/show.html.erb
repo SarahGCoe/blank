@@ -1,4 +1,4 @@
-<div class="container-show">
+<div class="container-fluid container_with_mb">
   <div class="row">
     <div class="col-md-6">
       <div class="solution-main-title">
@@ -6,7 +6,7 @@
       </div>
       <div class="pb-card w-100 bg-light">
         <div class="d-flex justify-content-between">
-          <img src="" alt="" class="pb-card-category">
+          <%= cl_image_tag(@problem.category.img_url, width: 80, height: 80, crop: :fill, class:"pb-card-category position-relative")%>
           <div class="pb-card-user">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/290px-Koala_climbing_tree.jpg" alt="user-avatar" class="rounded-circle">
             <p><%= @problem.user.name %></p>
@@ -16,9 +16,8 @@
         <h4><%= @problem.category.name.upcase %></h4>
 
         <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
+        <p><%= @problem.description %></p>
+        <div class="d-flex justify-content-between align-items-center pt-5">
           <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
           </div>
           <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
@@ -28,18 +27,17 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-md-6">
       <div class="row">
-       <div class="col-sm-12 mb-1 pl-5 pt-2">
+       <div class="col-sm-12 mb-1 pt-2">
         <div class="solution-main-title">
           <h3 class="solution-title">Solutions .</h3>
-          <button type="button" class="btn btn-lg btn-danger notification-show position-absolute"><%= @problem.solutions.count %></button>
         </div>
       </div>
     </div>
     <% @problem.solutions.each do |solution| %>
     <div class="container mt-3 mb-1 mr-5">
-      <div class="card-solution">
+      <div class="card-solution bg-light">
         <div class="row">
           <div class="col-sm-3 mb-1 pl-5 pt-2">
             <div class="card-solution-avatar">
