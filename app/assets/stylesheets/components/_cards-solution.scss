@@ -2,13 +2,14 @@
   border-radius: 12px;
   background: white;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid $gray;
+  border: 3px solid #F7B543;
   font-size: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .visible-scrollbar {
   width: 95%;
-  height: 40px;
+  height: 100%;
   float: left;
   margin-bottom: 2px;
   padding: 1%;
