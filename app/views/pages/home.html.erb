@@ -14,9 +14,11 @@
     <div class="row">
       <% @problems.each do |problem| %>
       <div class="col-md-4">
+        
         <%= link_to(problem_path(problem)) do %>
         <%= render 'shared/problem_card', problem: problem %>
         <% end %>
+        
       </div>
       <% end %>
     </div>
