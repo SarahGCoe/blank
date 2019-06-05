@@ -8,8 +8,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ProblemVote.destroy_all
 SolutionVote.destroy_all
-Solution.destroy_all
 Problem.destroy_all
+Solution.destroy_all
 Category.destroy_all
 User.destroy_all
 # CATEGORY =["Food", "Environment", "Social", "Tech", "Lifestyle", "Education"]
