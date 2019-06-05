@@ -45,37 +45,15 @@
           Start now
       <% end %>
     <% else %>
+      <div class="row">
       <% @problems.each do |problem| %>
-        <div class="col-md-4">
-          <div class="pb-card w-100 bg-light">
-            <div class="d-flex justify-content-between">
-              <img src="" alt="" class="pb-card-category">
-                <div class="pb-card-user">
-                  <% if @problem.user.photo.nil? %>
-                    <%= image_tag("User", size: "50x50", alt: "user") %>
-                  <% else %>
-                    <%= cl_image_tag @problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
-                  <% end %>
-                  <p><%= @problem.user.name %></p>
-                  <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
-                </div>
-            </div>
-            <h4><%= @problem.category.upcase %></h4>
-
-            <h3><%= link_to @problem.title, problem_path(@problem) %></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.</p>
-
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="pb-card-votes"> <%= pluralize(@problem.problem_votes_count, "vote") %>
-              </div>
-                  <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
-                    <%= hidden_field_tag 'problem_id', @problem.id %>
-                    +1 UP TO VOTE
-                  <% end %>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <%= link_to(problem_path(problem)) do %>
+        <%= render 'shared/problem_card', problem: problem %>
+        <% end %>
+      </div>
       <% end %>
+    </div>
       <% end %>
     </div>
 
@@ -93,7 +71,7 @@
               <div class="row">
                 <div class="col-sm-4 mb-1 pl-5 pt-3">
                   <div class="card-solution-avatar">
-                    <% if @solution.user.photo.nil? %>
+                    <% if solution.user.photo.nil? %>
                       <%= image_tag("User", size: "50x50", alt: "user") %>
                     <% else %>
                       <%= cl_image_tag solution.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
@@ -103,7 +81,7 @@
                 <div class="col-sm-4 pl-3 pt-4">
                   <div class="card-solution-profile">
                     <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
-                    <p class="date-post-solution">Created on Monday, May 29th</p>
+                    <p class="date-post-solution"><%= solution.created_at.strftime('%d %b %Y')%></p>
                   </div>
                 </div>
                 <div class="col-sm-4 pl-5">
@@ -122,7 +100,7 @@
                   </div>
                   <div class="col-sm-12 pl-4">
                     <div class="visible-scrollbar">
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. At eos, numquam, explicabo reiciendis nulla adipisci obcaecati aperiam quo aliquid nisi impedit veniam similique. Id, quod similique dolores laborum ut veritatis.</p>
+                      <p><%= solution.description %></p>
                     </div>
                   </div>
                   <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1 mb-4">

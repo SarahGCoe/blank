@@ -1,41 +1,8 @@
-<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(https://static1.squarespace.com/static/58323011e6f2e12eebd6f834/58e561056b8f5bd081db2cd8/59bc0fbd8a02c75c5c15deb2/1505497076722/Plasma+Dolphin.jpg?format=1000w);">
-  <div class="container d-flex h-100 justify-content-between flex-column">
-    <div class="text-container">
-      <h1>Bring ideas to creative people...</h1>
-    </div>
-    <h2 class="ml14">
-      <span class="text-wrapper">
-        <%= link_to(problems_path, style:"text-decoration:none; color:white;") do %>
-        <span class="letters">Explore now</span>
-        <span class="line"></span>
-        <% end %>
-      </span>
-    </h2>
-
-    <section id="section04" class="demo">
-      <a href="#carousel"><span></span></a>
-    </section>
-  </div>
-</div>
+<%= render 'banner' %>
 <div class="container">
   <div id="carousel" class=" d-flex">
     <%= render 'shared/carousel' %>
-    <div class="text-carousel m-4">
-      <h5>Entrepreneurs who achieved their project whith BLANK.</h5>
-      <div class="example-carousel p-3">
-        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726207/mlp_wpgvfj.png", width: 90, height: 90, crop: :fill, class:" mr-5")%>
-        <p>My Little Wardrobe is a collaborative dressing platform that allows you to exchange clothes between particulars.</p>
-      </div>
-      <div class="example-carousel p-3">
-        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726201/foodys_p8b3ua.png", width: 90, height: 90, crop: :fill, class:"mr-5")%>
-        <p>Foody's allows you to give cooking classes between particulars and exchange tips between food lovers.</p>
 
-      </div>
-      <div class="example-carousel p-3">
-        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726213/Autolib_imuhek.png", width: 90, height: 90, crop: :fill, class:"mr-5")%>
-        <p>Autolib is a public car-sharing service for self-service electric cars available in the Paris area. </p>
-      </div>
-    </div>
   </div>
   <section id="section05" class="carousel-section pt-3">
     <a href="#homepage-cards"><span></span></a>
@@ -47,39 +14,9 @@
     <div class="row">
       <% @problems.each do |problem| %>
       <div class="col-md-4">
-        <div class="pb-card w-100 bg-white">
-          <div class="d-flex justify-content-between">
-            <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill)%>
-            <div class="pb-card-user">
-              <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
-
-                <% if problem.user.photo.nil? %>
-                  <%= image_tag("User", size: "50x50", alt: "user") %>
-                <% else %>
-                  <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
-
-                <% end %>
-              <p><%= problem.user.name %></p>
-              <p><%= problem.created_at.strftime('%d %b %Y')%></p>
-            </div>
-          </div>
-          <h4><%= problem.category.name.upcase %></h4>
-
-          <h3><%= link_to problem.title, problem_path(problem) %></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, nesciunt minima temporibus blanditiis nulla porro aliquam voluptate, atque deserunt nostrum at. Mollitia non laudantium vel cupiditate nam, eveniet ab cum.
-          </p>
-          <div class="card-solution-description">
-            <%= link_to 'More details...', problem_path(problem) %>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="pb-card-votes"> <%= pluralize(problem.problem_votes_count, "vote") %>
-            </div>
-              <%= button_to(problem_votes_path, class:"rounded-border btn btn-warning text-light") do %>
-              <%= hidden_field_tag 'problem_id', problem.id %>
-              +1 UPVOTE
-            <% end %>
-            </div>
-        </div>
+        <%= link_to(problem_path(problem)) do %>
+        <%= render 'shared/problem_card', problem: problem %>
+        <% end %>
       </div>
       <% end %>
     </div>
