@@ -1,16 +1,18 @@
-<div class="container-fluid container_with_mb">
+<div class="container-fluid container_with_mb mt-5">
   <div class="row">
     <div class="col-md-6">
       <div class="solution-main-title">
-        <h3 class="solution-title mb-1 pl-5 pt-2">Problem .</h3>
+        <h3 class="solution-title mb-1 pl-5 pt-2">Problem.</h3>
       </div>
-        <%= render 'shared/problem_card', problem: @problem %>
+      <div class="pb-card w-100 bg-white hovering">
+      <%= render 'shared/problem_card', problem: @problem %>
+      </div>
     </div>
     <div class="col-md-6">
       <div class="row">
        <div class="col-sm-12 mb-1 pt-2">
         <div class="solution-main-title">
-          <h3 class="solution-title">Solutions .</h3>
+          <h3 class="solution-title">Solutions.</h3>
         </div>
       </div>
     </div>
