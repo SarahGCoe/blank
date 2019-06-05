@@ -10,8 +10,8 @@ ProblemVote.destroy_all
 SolutionVote.destroy_all
 Solution.destroy_all
 Problem.destroy_all
-User.destroy_all
 Category.destroy_all
+User.destroy_all
 # CATEGORY =["Food", "Environment", "Social", "Tech", "Lifestyle", "Education"]
 
 puts 'Creating one category'
