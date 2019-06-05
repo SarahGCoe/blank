@@ -1,0 +1,24 @@
+        <div class="pb-card w-100 bg-white h-95 hovering">
+          <div class="d-flex justify-content-between">
+            <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill, class:"pb-card-category position-relative")%>
+            <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
+            <div class="pb-card-user">
+
+              <% if problem.user.photo.nil? %>
+                <%= image_tag("User", size: "50x50", alt: "user") %>
+              <% else %>
+                <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+              <% end %>
+              <p><%= problem.user.name %></p>
+              <p><%= problem.created_at.strftime('%d %b %Y')%></p>
+            </div>
+          </div>
+          <h4><%= problem.category.name.upcase %></h4>
+          <h3><%=problem.title %></h3>
+          <p><%= problem.description.truncate(240) %></p>
+
+          <div class="card-solution-description">
+            <%= link_to 'More details...', problem_path(problem) %>
+          </div>
+          <%= render 'shared/problem_vote', problem: problem %>
+        </div>
