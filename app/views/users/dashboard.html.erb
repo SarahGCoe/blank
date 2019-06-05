@@ -18,12 +18,12 @@
       </div>
 
       <div class="col-sm-5">
-        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4 position-absolute" >
-          <div class="avatar-large text-center position-relative">
+        <div class="card-profile-entrepreneur justify-content-center flex-column text-center mr-5 p-5 mt-4 position-absolute" >
+          <div class="justify-content-center text-center position-relative">
             <% if current_user.photo.url.nil? %>
-              <%= image_tag "user.png", height: 200, width: 200, class:"avatar" %>
+              <%= image_tag "user.png", class:"avatar-large" %>
             <% else %>
-              <%= cl_image_tag current_user.photo.url, height: 200, width: 200, crop: :fill, class:"avatar" %>
+              <%= cl_image_tag current_user.photo.url, crop: :fill, class:"avatar-large" %>
             <% end %>
           </div>
           <h3 class="card-profile-name mt-4 mb-4"><%= current_user.name %></h3>
