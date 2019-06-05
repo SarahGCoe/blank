@@ -20,20 +20,20 @@
 <div class="container">
   <div id="carousel" class=" d-flex">
     <%= render 'shared/carousel' %>
-    <div class="text-carousel p-3">
-      <h3>Don't know where to start?</h3>
-      <p>Here are some examples of projects that were completed with Blank.</p>
-      <div class="example-carousel">
-        <%= image_tag("kickstarter-logo.jpg", size: "100x100", alt: "kickstarter-logo") %>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illum porro beatae iure earum quod fuga.</p>
+    <div class="text-carousel m-4">
+      <h5>Entrepreneurs who achieved their project whith BLANK.</h5>
+      <div class="example-carousel p-3">
+        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726207/mlp_wpgvfj.png", width: 90, height: 90, crop: :fill, class:" mr-5")%>
+        <p>My Little Wardrobe is a collaborative dressing platform that allows you to exchange clothes between particulars.</p>
       </div>
-      <div class="example-carousel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illum porro beatae iure earum quod fuga.</p>
-        <%= image_tag("Yuka.png", size: "100x50", alt: "yuka-logo") %>
+      <div class="example-carousel p-3">
+        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726201/foodys_p8b3ua.png", width: 90, height: 90, crop: :fill, class:"mr-5")%>
+        <p>Foody's allows you to give cooking classes between particulars and exchange tips between food lovers.</p>
+
       </div>
-      <div class="example-carousel">
-        <%= image_tag("woman-trip.png", size: "100x70", alt: "yuka-logo") %>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illum porro beatae iure earum quod fuga.</p>
+      <div class="example-carousel p-3">
+        <%= cl_image_tag("https://res.cloudinary.com/dx3ojip2r/image/upload/v1559726213/Autolib_imuhek.png", width: 90, height: 90, crop: :fill, class:"mr-5")%>
+        <p>Autolib is a public car-sharing service for self-service electric cars available in the Paris area. </p>
       </div>
     </div>
   </div>
@@ -52,10 +52,12 @@
             <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill)%>
             <div class="pb-card-user">
               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
+
                 <% if problem.user.photo.nil? %>
                   <%= image_tag("user.png", size: "50x50", alt: "user") %>
                 <% else %>
                   <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+
                 <% end %>
               <p><%= problem.user.name %></p>
               <p><%= problem.created_at.strftime('%d %b %Y')%></p>
