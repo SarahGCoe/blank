@@ -2,7 +2,7 @@
 <div class="container d-flex justify-content-center align-items-center">
     <%= simple_form_for :filters, url: problems_path, method: :get do |f| %>
     <%= f.input :category, label:"category", collection: Problem::CATEGORY %>
-    <%= f.button :submit, class:"btn btn-sm btn-dark" %>
+    <%= f.button :submit, class:"btn-filters" %>
   <% end %>
   <div class="sort_icon ml-5">
     <%= link_to problems_path(sort: "votes", direction: 'asc') do %>
