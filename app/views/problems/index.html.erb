@@ -16,7 +16,7 @@
             <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
             <div class="pb-card-user">
               <% if !current_user.photo.nil? %>
-              <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+              <%= cl_image_tag current_user.photo, crop: :thumb, gravity: :face, class:"avatar" %>
               <% end %>
               <p><%= problem.user.name %></p>
               <p><%= problem.created_at.strftime('%d %b %Y')%></p>
