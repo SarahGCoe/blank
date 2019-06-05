@@ -1,13 +1,41 @@
-.container-show {
-  display: flex;
-  align-items: center;
+.container-show-solution {
   justify-content: space-around;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #CED4DA;
+  border-radius: 10px;
 }
 
 .card-profile-entrepreneur {
-  border: 1px solid #CED4DA;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid $yellow;
   border-radius: 10px;
+}
+
+.picture-solution {
+  padding: 0;
+}
+
+.solution-photo {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 0;
+}
+
+.solution-user-content {
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin: 0;
+  }
+}
+
+.solution-content {
+  span {
+    color: #F9C659;
+    font-weight: bold;
+    letter-spacing: .3em;
+  }
 }
 
 .card-number-votes {
@@ -19,13 +47,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0 0 10px 10px;
   h4 {
     margin: 0;
   }
 }
 
-#target span {
-  color: #F9C659;
-  font-weight: bold;
-}
 
