@@ -11,6 +11,7 @@ SolutionVote.destroy_all
 Problem.destroy_all
 Solution.destroy_all
 Category.destroy_all
+
 User.destroy_all
 # CATEGORY =["Food", "Environment", "Social", "Tech", "Lifestyle", "Education"]
 

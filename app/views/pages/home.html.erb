@@ -29,10 +29,10 @@
       </div>
       <div class="example-carousel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illum porro beatae iure earum quod fuga.</p>
-        <%= image_tag("Yuka", size: "100x50", alt: "yuka-logo") %>
+        <%= image_tag("Yuka.png", size: "100x50", alt: "yuka-logo") %>
       </div>
       <div class="example-carousel">
-        <%= image_tag("woman-trip", size: "100x70", alt: "yuka-logo") %>
+        <%= image_tag("woman-trip.png", size: "100x70", alt: "yuka-logo") %>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illum porro beatae iure earum quod fuga.</p>
       </div>
     </div>
@@ -53,7 +53,7 @@
             <div class="pb-card-user">
               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
                 <% if problem.user.photo.nil? %>
-                  <%= image_tag("User", size: "50x50", alt: "user") %>
+                  <%= image_tag("user.png", size: "50x50", alt: "user") %>
                 <% else %>
                   <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
                 <% end %>
