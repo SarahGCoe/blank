@@ -1,16 +1,5 @@
 <div class="container">
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active text-secondary" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My profile</a>
-    </li>
-    <li class="nav-item text-secondary">
-      <a class="nav-link text-secondary" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My issues</a>
-    </li>
-    <li class="nav-item text-secondary">
-      <a class="nav-link text-secondary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My ideas</a>
-    </li>
-  </ul>
-
+ <%= render 'tab' %>
   <div class="tab-content mt-5 mb-5" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="col-sm-12 text-center">
@@ -18,8 +7,8 @@
       </div>
 
       <div class="col-sm-5">
-        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4 position-absolute" >
-          <div class="avatar-large text-center position-relative">
+        <div class="card-profile-entrepreneur text-center mr-5 p-5 mt-4 d-flex flex-column" >
+          <div class="avatar-large text-center ">
             <% if !current_user.photo.nil? %>
               <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill %>
             <% end %>
@@ -141,7 +130,6 @@
   </div>
 </div>
 </div>
-</div>
-</div>
+
 
 
