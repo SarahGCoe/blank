@@ -2,17 +2,18 @@
 .rounded-border {
   border-radius: 16px;
 }
+
 /*Login */
 .form-container {
   border: 1px solid #CED4DA;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   display: flex;
   height: 600px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   background: #303643;
@@ -21,7 +22,7 @@
 /*Solution */
 .form-container-solution {
   border: 1px solid #CED4DA;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   display: flex;
   height: 650px;
@@ -34,6 +35,10 @@
   a {
     text-decoration: none;
   }
+}
+
+.rounded-border-small {
+  border-radius: 6px;
 }
 
 /*Search */
@@ -88,17 +93,26 @@
   margin: 0 0 5px 0;
   }
   .form-control {
-    height: 30px;
-    font-family: "Roboto Mono", "monospace";
-    font-size: 14px;
+  height: 30px;
+  font-family: "Roboto Mono", "monospace";
+  font-size: 14px;
   }
   .form-control-label {
   margin: 0 0 5px 0;
   font-family: "Roboto Mono", "monospace";
   font-size: 14px;
   }
-  .btn {
+  .btn-filters {
   font-family: "Roboto Mono", "monospace";
+  font-size: 14px;
+  color: white;
+  padding: 4px 12px;
   border-radius: 4px;
+  background: #494949;
+  opacity: .7;
+  transition: background 0.3s ease;
+  }
+  .btn-filters:hover {
+  opacity: 1;
   }
 }
