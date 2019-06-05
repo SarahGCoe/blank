@@ -54,7 +54,7 @@
               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
 
                 <% if problem.user.photo.nil? %>
-                  <%= image_tag("User", size: "50x50", alt: "user") %>
+                  <%= image_tag("user.png", size: "50x50", alt: "user") %>
                 <% else %>
                   <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
 
