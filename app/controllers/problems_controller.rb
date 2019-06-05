@@ -1,7 +1,7 @@
 require 'pg_search'
 class ProblemsController < ApplicationController
   helper_method :sort_direction
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :new]
 
   def index
     if params[:search].present?
@@ -28,9 +28,30 @@ class ProblemsController < ApplicationController
     @problem = Problem.find(params[:id])
   end
 
+  def new
+    @problem = Problem.new
+  end
+
+  def create
+    @problem = Problem.new(problem_params)
+    @problem.category = Category.find(params[:problem][:category_id])
+    @problem.user = current_user
+    # raise
+    if @problem.save
+
+      redirect_to problem_path(@problem)
+    else
+      render :new
+    end
+  end
+
   private
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def problem_params
+    params.require(:problem).permit(:title, :description, :category_id)
   end
 end
