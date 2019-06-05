@@ -1,4 +1,4 @@
-<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1967&q=80);">
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(https://static1.squarespace.com/static/58323011e6f2e12eebd6f834/58e561056b8f5bd081db2cd8/59bc0fbd8a02c75c5c15deb2/1505497076722/Plasma+Dolphin.jpg?format=1000w);">
   <div class="container d-flex h-100 justify-content-between flex-column">
     <div class="text-container">
       <h1>Bring ideas to creative people...</h1>
@@ -51,8 +51,12 @@
           <div class="d-flex justify-content-between">
             <%= cl_image_tag(problem.category.img_url, width: 80, height: 80, crop: :fill)%>
             <div class="pb-card-user">
-              <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
               <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= problem.solutions.count %></button>
+                <% if @problem.user.photo.nil? %>
+                  <%= image_tag("User", size: "50x50", alt: "user") %>
+                <% else %>
+                  <%= cl_image_tag problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+                <% end %>
               <p><%= problem.user.name %></p>
               <p><%= problem.created_at.strftime('%d %b %Y')%></p>
             </div>

@@ -16,7 +16,7 @@
   border-radius: 10px;
   padding: 35px;
   margin-top: 30px;
-  height: 520px;
+  // box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
   .pb-card h3 {
@@ -38,14 +38,26 @@
   .pb-card h4 {
     padding: 5px;
     font-size: 1.2rem;
+    font-family: "Roboto Mono";
     color: #808080;
     margin-top: 10px;
   }
 
   .pb-card p {
-    padding: 10px;
-    padding-top: 5px;
+    padding: 0px;
+    padding-top: 0px;
     text-align: justify;
+    margin-bottom: -5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color:black;
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 3;
+    // line-height: 20px;
+    // max-height: 16*6;
+
   }
 
 .pb-card-user{
@@ -69,7 +81,6 @@
 .pb-card-category {
   width: 85px;
   height: 85px;
-  background-color: #e6e6e6;
   margin-left: 10px;
   border-radius: 5px;
 }
@@ -77,4 +88,22 @@
 .pb-card-votes{
   color: #8c8c8c;
   margin-left: 20px;
+}
+
+.card-solution-description{
+  padding-top: 3px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+}
+
+.h-95 {
+  height: 95%;
+}
+.hovering {
+  transform: scale(0.98);
+  transition: box-shadow 0.5s, transform 0.5s;
+  &:hover {
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+  }
 }
