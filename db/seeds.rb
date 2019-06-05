@@ -6,9 +6,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Problem.destroy_all
 ProblemVote.destroy_all
+SolutionVote.destroy_all
 Solution.destroy_all
+Problem.destroy_all
 User.destroy_all
 Category.destroy_all
 # CATEGORY =["Food", "Environment", "Social", "Tech", "Lifestyle", "Education"]
