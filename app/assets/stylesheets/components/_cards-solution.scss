@@ -30,17 +30,37 @@
   letter-spacing: 0.1em;
 }
 
-.card-solution-description h3 {
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  border-top: 2px solid #FFC65A;
-  border-bottom: 2px solid #FFC65A;
-}
-
 // .card-solution-description {
 //   padding-right: 5px;
 //   padding-left: 5px;
 // }
+.card-solution-underlined-title {
+  border-top: 2px solid #FFC65A;
+  border-bottom: 2px solid #FFC65A;
+  margin-bottom: 20px;
+}
+
+.card-solution-underlined-title h3 {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  padding-top:0;
+  padding-bottom:0;
+  margin:0,
+}
+
+.card-solution-description a {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: $gray;
+}
+
+.card-solution-description a:hover {
+  text-decoration: none;
+  color: $gray;
+  padding : 0 0 2px 10px;
+  border-bottom : 4px solid $yellow;
+}
 
 .rounded-border {
   border-radius: 16px;
@@ -58,19 +78,7 @@
   border: none;
 }
 
-.card-solution-description a {
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  color: $gray;
-}
 
-.card-solution-description a:hover {
-  text-decoration: none;
-  color: $gray;
-  padding : 0 0 2px 10px;
-  border-bottom : 4px solid $yellow;
-}
 
 .solution-title .notification {
   top: 200px;
