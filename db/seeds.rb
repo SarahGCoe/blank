@@ -6,6 +6,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Problem.destroy_all
 User.destroy_all
 Category.destroy_all
 # CATEGORY =["Food", "Environment", "Social", "Tech", "Lifestyle", "Education"]
@@ -45,9 +46,12 @@ category_education.save!
 
 puts 'Creating 1 Users...'
 1.times do |i|
-  user = User.create!(name: Faker::Science.scientist,
+  user = User.new(name: Faker::Science.scientist,
     email: Faker::Internet.email,
     password: "azerty")
+  url = "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559660382/mat_photo_ayrhrs.jpg"
+  user.remote_photo_url = url
+  user.save
 
   puts 'Creating 1 Problems...'
     problem = Problem.new(title: Faker::Book.title,
@@ -88,29 +92,7 @@ puts 'Creating 1 Users...'
     end
   end
 
-1.times do |i|
-  user = User.create!(name: Faker::Science.scientist,
-    email: Faker::Internet.email,
-    password: "azerty")
 
-    puts 'Creating 1 Problems...'
-      3.times do |i|
-      problem = Problem.new(title: Faker::Book.title,
-      description: Faker::Quote.famous_last_words,
-      category: category_food)
-    problem.user = user
-    problem.save!
-  end
-
-    puts 'Creating 2 Solutions...'
-    2.times do |k|
-    solution = Solution.new(title: Faker::Movies::HarryPotter.book,
-      description: Faker::Movies::HarryPotter.quote)
-    solution.user = user
-    solution.problem = problem
-    solution.save!
-    end
-  end
 
 1.times do |i|
   user = User.create!(name: Faker::Science.scientist,
