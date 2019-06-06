@@ -14,7 +14,6 @@ class ProblemsController < ApplicationController
 
     if params[:filters].present?
       session[:category] = params[:filters][:category]
-# raise
     end
 
     if !session[:category].blank?
