@@ -1,3 +1,15 @@
 .hover-white:hover {
   color: white;
 }
+
+.upload-input-btn {
+    opacity: 0;
+    top: 70%;
+    position: absolute;
+}
+
+.fake-upload {
+  .fas {
+    font-size: 40px;
+  }
+}

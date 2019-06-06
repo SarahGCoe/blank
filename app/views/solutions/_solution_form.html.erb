@@ -11,11 +11,16 @@
         input_html: { class:"h3 rounded-border-small" } %>
         <%= f.input :target, label:"Who is concerned by your solution?",
         input_html: { class:"h3 rounded-border-small" } %>
-        <%= f.input :photo, label:"Don't hesitate to make it pretty!" %>
+        <div class="upload-input">
+          <%= f.input :photo, label:"Don't hesitate to make it pretty!", input_html: { class: "upload-input-btn" }  %>
+          <div class="fake-upload">
+            <i class="fas fa-camera-retro"></i>
+          </div>
+        </div>
         <%= f.input :photo_cache, as: :hidden %>
         <div class="d-flex flex-column align-items-center mb-3">
-        <%= f.button :submit, "Create solution!", class:"h2 btn-outline-warning rounded-border btn-lg mt-2 hover-white" %>
-        <%= link_to "Cancel", problem_path(@problem), class:"btn btn-outline-secondary rounded-border mt-2 mb-3 hover-white" %>
+          <%= f.button :submit, "Create solution!", class:"h2 btn-outline-warning rounded-border btn-lg mt-2 hover-white" %>
+          <%= link_to "Cancel", problem_path(@problem), class:"btn btn-outline-secondary rounded-border mt-2 mb-3 hover-white" %>
         </div>
       </div>
       <% end %>
