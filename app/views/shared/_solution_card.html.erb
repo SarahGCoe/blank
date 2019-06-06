@@ -1,0 +1,50 @@
+<% @problem.solutions.each do |solution| %>
+    <div class="container mt-3 mb-1 mr-5">
+      <div class="card-solution bg-white pl-4 pr-4">
+        <div class="row">
+          <div class="col-3 mb-1 pl-5 pt-3">
+            <div class="card-solution-avatar">
+
+              <% if solution.user.photo.nil? %>
+                <%= image_tag("User", size: "50x50", alt: "user") %>
+               <% else %>
+                <%= cl_image_tag solution.user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-4 pl-0 pt-4">
+            <div class="card-solution-profile">
+              <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
+              <p class="date-post-solution"><%= solution.created_at.strftime('%d %b %Y')%></p>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="btn-group p-3 d-flex justify-content-end mt-3">
+              <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+              <%= link_to(solution_votes_path(solution_id: solution.id), class:"rounded-border btn btn-outline-secondary", method: :post) do %>
+              <span class="btn-without-border">UPVOTE</span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <div class="card-solution-description d-flex">
+              <h3 class="card-solution-underlined-title p-1"><%= solution.title %></h3>
+            </div>
+          </div>
+          <div class="visible-scrollbar">
+            <div class="solution-content col-12 pl-4 pr-4">
+              <div>
+                <p><span>FOR:</span><%= solution.target %></p>
+              </div>
+              <p><span>DESCRIPTION: </span><%= solution.description %></p>
+            </div>
+          </div>
+          <div class="col-12 mt-1 ml-1 pl-4 pb-1">
+            <div class="card-solution-description p-3">
+              <%= link_to 'More details...', solution_path(solution) %>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <% end %>

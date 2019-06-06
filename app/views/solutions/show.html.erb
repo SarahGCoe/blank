@@ -3,8 +3,8 @@
     <div class="container-show-solution row d-flex justify-content-center mt-5 mb-5 bg-white">
 
       <div class="picture-solution col-6 d-flex justify-content-start">
-        <% if !current_user.photo.nil? %>
-        <%= image_tag("solution", class:"solution-photo", alt:"solution_img") %>
+        <% if current_user.photo.nil? %>
+        <%= image_tag("solution.jpg", class:"solution-photo", alt:"solution_img") %>
         <% else %>
         <%= cl_image_tag @solution.photo, crop: :fill, class:"solution-photo", alt:"solution_img" %>
         <% end %>

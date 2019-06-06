@@ -1,18 +1,18 @@
 .sort_icon {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 1px solid #494949;
-  border-radius: 4px;
-  padding: 4px;
-  opacity: .7;
-  height: 35px;
-  a {
-    font-family: "Roboto Mono", "monospace";
-    text-decoration: none;
-    color: #494949;
-    font-size: 14px;
+  .fas {
+    font-size: 24px;
+    opacity: .7;
+  }
+  .fas:hover {
     opacity: 1;
   }
-  a:hover {
-    opacity: .7;
+  a {
+    text-decoration: none;
+    color: #494949;
+  }
+  p {
+    font-family: "Roboto Mono", "monospace";
+    color: #494949;
+    font-size: 16px;
   }
 }
