@@ -24,3 +24,39 @@
   opacity: 1;
 }
 
+.nav-item a {
+  // padding: 15px;
+  text-decoration: none;
+  color: black;
+  // text-transform: uppercase;
+  margin: 0 10px;
+}
+.nav-item a,
+.nav-item a:after,
+.nav-item a:before {
+  transition: all .5s;
+}
+.nav-item a:hover {
+  color: red;
+}
+
+
+/* stroke */
+.nav-item a  {
+  position: relative;
+}
+.nav-item a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: white;
+  height: 1px;
+}
+.nav-item a:hover:after {
+  width: 100%;
+}
