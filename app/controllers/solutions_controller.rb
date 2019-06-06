@@ -1,4 +1,7 @@
 class SolutionsController < ApplicationController
+  def index
+    @solutions = Solution.where(status: 'selected')
+  end
   def show
     @solution = Solution.find(params[:id])
   end

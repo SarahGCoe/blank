@@ -26,6 +26,7 @@ class ProblemsController < ApplicationController
 
   def show
     @problem = Problem.find(params[:id])
+    @winning_solution = @problem.solutions.where(status:'selected').max_by { |solution| solution.solution_votes_count }
   end
 
   def new

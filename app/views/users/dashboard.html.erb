@@ -52,12 +52,14 @@
           <div class="pb-card w-100 bg-white h-95 hovering">
             <%= render 'shared/problem_card', problem: problem %>
           </div>
+
           <% end %>
         </div>
         <% end %>
       </div>
       <% end %>
     </div>
+
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% if @solutions.empty? %>
 
@@ -109,16 +111,19 @@
                 <p><span>DESCRIPTION: </span><%= solution.description %></p>
               </div>
             </div>
+
             <div class="col-12 mt-1 ml-1 pl-4 pb-1">
               <div class="card-solution-description ">
                 <%= link_to 'More details...', solution_path(solution) %>
               </div>
+
             </div>
           </div>
         </div>
       </div>
       <% end %>
       <% end %>
+
     </div>
   </div>
   <div class="container">
@@ -132,6 +137,7 @@
 
     </div>
   </div>
+
 </div>
 </div>
 </div>
