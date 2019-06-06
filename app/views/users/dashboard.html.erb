@@ -41,7 +41,7 @@
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <% if @problems.empty? %>
       <p>Share with us your problems, someone will find you a great solution!</p>
-        <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
+        <%= link_to(problems_path, class:"rounded-border btn btn-warning text-white hover-white") do %>
           Start now
       <% end %>
     <% else %>
@@ -63,7 +63,7 @@
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% if @solutions.empty? %>
         <p>Join the community and share a solution!</p>
-        <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
+        <%= link_to(problems_path, class:"rounded-border btn btn-warning text-white hover-white") do %>
           Find a solution
         <% end %>
       <% else %>
