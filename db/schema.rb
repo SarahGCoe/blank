@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_083624) do
     t.datetime "updated_at", null: false
     t.integer "solution_votes_count", default: 0
     t.string "target"
+    t.string "file"
     t.string "photo"
     t.integer "status", default: 0
     t.index ["problem_id"], name: "index_solutions_on_problem_id"
