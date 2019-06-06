@@ -1,7 +1,11 @@
-<% @problem.solutions.each do |solution| %>
-    <div class="container mt-3 mb-1 mr-5">
-      <div class="card-solution bg-white pl-4 pr-4">
-        <div class="row">
+<% @solutions_sorted_desc.each do |solution| %>
+<div class="container mt-3 mb-1 mr-5">
+  <% if solution == @winning_solution %>
+    <div class="card-solution card-winning-solution bg-white pl-4 pr-4">
+  <% else %>
+    <div class="card-solution bg-white pl-4 pr-4">
+  <% end %>
+      <div class="row">
           <div class="col-3 mb-1 pl-5 pt-3">
             <div class="card-solution-avatar">
 
