@@ -3,7 +3,7 @@
     <div class="container-show-solution row d-flex justify-content-center mt-5 mb-5 bg-white">
 
       <div class="picture-solution col-6 d-flex justify-content-start">
-        <% if !current_user.photo.nil? %>
+        <% if current_user.photo.nil? %>
         <%= image_tag("solution.jpg", class:"solution-photo", alt:"solution_img") %>
         <% else %>
         <%= cl_image_tag @solution.photo, crop: :fill, class:"solution-photo", alt:"solution_img" %>
@@ -48,10 +48,10 @@
 
     <div class="col-12">
       <div class="btn-underline-yellow-black text-center">
-        <%= link_to "> Back to problem",problem_path(@solution.problem) %>
+        <%= link_to "> Back to need",problem_path(@solution.problem) %>
       </div>
       <div class="btn-underline-yellow-black mt-2 text-center">
-        <%= link_to "> Back to problems list", problems_path %>
+        <%= link_to "> Back to needs list", problems_path %>
       </div>
     </div>
   </div>

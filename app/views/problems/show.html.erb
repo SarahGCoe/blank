@@ -2,10 +2,27 @@
   <div class="row">
     <div class="col-md-6">
       <div class="solution-main-title">
-        <h3 class="solution-title mb-1 pl-5 pt-2">Problem.</h3>
+        <h3 class="solution-title mb-1 pl-5 pt-2">Need.</h3>
       </div>
       <div class="pb-card w-100 bg-white notif-show">
-      <%= render 'shared/problem_card', problem: @problem %>
+          <div class="d-flex justify-content-between">
+            <%= cl_image_tag(@problem.category.img_url, width: 80, height: 80, crop: :fill, class:"pb-card-category position-relative")%>
+            <button type="button" class="btn btn-lg btn-danger notification position-absolute" data-toggle="popover" data-placement="top" title="" data-content="Number of solutions"><%= @problem.solutions.count %></button>
+            <div class="pb-card-user">
+
+              <% if @problem.user.photo.nil? %>
+                <%= image_tag("User", size: "50x50", alt: "user") %>
+              <% else %>
+                <%= cl_image_tag @problem.user.photo.url, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
+              <% end %>
+              <p><%= @problem.user.name %></p>
+              <p><%= @problem.created_at.strftime('%d %b %Y')%></p>
+            </div>
+          </div>
+          <h4><%= @problem.category.name.upcase %></h4>
+          <h3><%= @problem.title %></h3>
+          <p><%= @problem.description %></p>
+          <%= render 'shared/problem_vote', problem: @problem %>
       </div>
     </div>
     <div class="col-md-6">
@@ -18,7 +35,7 @@
     </div>
     <%= render 'shared/solution_card', problem: @solution %>
       <div class="col-12 d-flex justify-content-center mt-3">
-        <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-outline-warning") do %>
+        <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-outline-warning hover-white") do %>
         Add a solution
         <% end %>
       </div>
