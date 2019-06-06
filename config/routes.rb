@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :solutions, only: [:new, :create]
   end
 
-  resources :solutions, only: [:show]
+  resources :solutions, only: [:show, :index]
 
   resources :problem_votes, only: [:create]
 
