@@ -2,9 +2,13 @@
   border-radius: 12px;
   background: white;
   font-family: 'Roboto', sans-serif;
-  border: 2px solid #FFC65A;
+  border: 2px solid $yellow;
   font-size: 16px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-winning-solution {
+  border: 3px solid $green;
 }
 
 .visible-scrollbar {

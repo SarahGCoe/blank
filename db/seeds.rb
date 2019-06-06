@@ -70,6 +70,8 @@ puts 'Creating 1 Users...'
       description: Faker::Movies::HarryPotter.quote)
     solution.user = user
     solution.problem = problem
+    solution.solution_votes_count = 102
+    solution.status = 'selected'
     solution.save!
     end
   end
