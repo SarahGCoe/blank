@@ -1,6 +1,7 @@
 class SolutionsController < ApplicationController
   def index
     @solutions = Solution.where(status: 'selected')
+    @solutions_popular = @solutions.where("solution_votes_count> 300")
   end
   def show
     @solution = Solution.find(params[:id])

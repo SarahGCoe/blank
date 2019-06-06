@@ -1,4 +1,40 @@
-<div class="container">
+<div class="container mt-3">
+  <h3 class="title-project mt-5 mb-5 text-center">Contribute to the project and join a team !</h3>
+  <ul class="nav nav-tabs mx-auto" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-secondary" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All the projects</a>
+    </li>
+    <li class="nav-item text-secondary">
+      <a class="nav-link text-secondary" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Most popular</a>
+    </li>
+  </ul>
+    <div class="tab-content mt-5 mb-5" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row">
+          <% @solutions.each do |solution| %>
+          <%= render 'shared/solution_card', solution: solution %>
+            <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-outline-warning hover-white") do %>
+             Participate
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="row">
+          <% @solutions_popular.each do |solution_popular| %>
+          <%= render 'shared/solution_card', solution: solution %>
+            <%= link_to(new_problem_solution_path(@problem), class:"rounded-border btn btn-outline-warning hover-white") do %>
+                 Participate
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- <div class="container">
   <div class="row">
     <% @solutions.each do |solution| %>
     <div class="col-md-6">
@@ -55,4 +91,4 @@
     </div>
     <% end %>
   </div>
-</div>
+</div> -->
