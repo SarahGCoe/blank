@@ -40,7 +40,7 @@
 
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <% if @problems.empty? %>
-      <p>Share with us your problems, someone will find you a great solution!</p>
+      <p>Share with us your needs, someone will find you a great solution!</p>
         <%= link_to(problems_path, class:"rounded-border btn btn-warning text-white hover-white") do %>
           Start now
       <% end %>
@@ -129,7 +129,7 @@
       <%= link_to "> Back to homepage", root_path %>
     </div>
     <div class="btn-underline-yellow-black mt-2 text-center">
-      <%= link_to "> Read the problems", problems_path %>
+      <%= link_to "> Read the needs", problems_path %>
     </div>
   </div>
 </div>
