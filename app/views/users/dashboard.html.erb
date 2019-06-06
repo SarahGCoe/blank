@@ -10,20 +10,18 @@
       <a class="nav-link text-secondary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My ideas</a>
     </li>
   </ul>
-
   <div class="tab-content mt-5 mb-5" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="col-12 text-center">
         <h3> WELCOME <%= current_user.name.upcase %> ! </h3>
       </div>
-
       <div class="d-flex justify-content-center flex-column">
-        <div class="card-profile-entrepreneur justify-content-center flex-column text-center p-5 mt-4" >
+        <div class="card-my-profile-dashboard justify-content-center flex-column text-center p-5 mt-4" >
           <div class="justify-content-center text-center">
             <% if current_user.photo.url.nil? %>
-              <%= image_tag "user.png", class:"avatar-large" %>
+            <%= image_tag "user.png", class:"avatar-large" %>
             <% else %>
-              <%= cl_image_tag current_user.photo.url, crop: :fill, class:"avatar-large" %>
+            <%= cl_image_tag current_user.photo.url, crop: :fill, class:"avatar-large" %>
             <% end %>
           </div>
           <h3 class="card-profile-name mt-4 mb-4"><%= current_user.name %></h3>
@@ -37,104 +35,102 @@
         </div>
       </div>
     </div>
-
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <% if @problems.empty? %>
-      <p>Share with us your problems, someone will find you a great solution!</p>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <% if @problems.empty? %>
+      <div class="card-my-profile-dashboard justify-content-center flex-column text-center p-5 mt-4" >
+        <p>Share with us what you need, someone will find you a great solution! <br><div class="emoji-solution">🤯</div></p>
         <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
-          Start now
-      <% end %>
-    <% else %>
+        Start now
+        <% end %>
+      </div>
+      <% else %>
       <div class="row">
-      <% @problems.each do |problem| %>
-      <div class="col-md-4">
-        <%= link_to(problem_path(problem)) do %>
+        <% @problems.each do |problem| %>
+        <div class="col-md-4">
+          <%= link_to(problem_path(problem)) do %>
           <div class="pb-card w-100 bg-white h-95 hovering">
-          <%= render 'shared/problem_card', problem: problem %>
+            <%= render 'shared/problem_card', problem: problem %>
           </div>
-
+          <% end %>
+        </div>
         <% end %>
       </div>
       <% end %>
     </div>
-      <% end %>
-    </div>
-
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% if @solutions.empty? %>
-        <p>Join the community and share a solution!</p>
+      <div class="card-my-profile-dashboard justify-content-center flex-column text-center p-5 mt-4" >
+        <p>Join the community and share a solution! <br><div class="emoji-solution">💭</div></p>
         <%= link_to(problems_path, class:"rounded-border btn btn-warning text-light") do %>
-          Find a solution
+        Find a solution
         <% end %>
+      </div>
       <% else %>
-
-       <% @solutions.each do |solution| %>
-<div class="container col-12 d-flex justify-content-center mt-3 mb-1 mr-5">
-      <div class="card-solution bg-white pl-4 pr-4 col-6">
-        <div class="row">
-          <div class="col-3 mb-1 pl-5 pt-3">
-            <div class="card-solution-avatar">
-
-              <% if solution.user.photo.nil? %>
+      <% @solutions.each do |solution| %>
+      <div class="container col-12 d-flex justify-content-center mt-3 mb-1 mr-5">
+        <div class="card-solution bg-white pl-4 pr-4 col-6">
+          <div class="row">
+            <div class="col-3 mb-1 pl-5 pt-3">
+              <div class="card-solution-avatar">
+                <% if solution.user.photo.nil? %>
                 <%= image_tag("User", size: "50x50", alt: "user") %>
-               <% else %>
+                <% else %>
                 <%= cl_image_tag solution.user.photo, height: 50, width: 50, crop: :thumb, gravity: :face, class:"avatar" %>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-4 pl-0 pt-4">
-            <div class="card-solution-profile">
-              <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
-              <p class="date-post-solution"><%= solution.created_at.strftime('%d %b %Y')%></p>
-            </div>
-          </div>
-          <div class="col-5">
-            <div class="btn-group p-3 d-flex justify-content-end mt-3">
-              <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
-              <%= link_to(solution_votes_path(solution_id: solution.id), class:"rounded-border btn btn-outline-secondary", method: :post) do %>
-              <span class="btn-without-border">UPVOTE</span>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-12 mt-3">
-            <div class="card-solution-description d-flex">
-              <h3 class="card-solution-title pl-4 pr-4"><%= solution.title %></h3>
-            </div>
-          </div>
-          <div class="visible-scrollbar">
-            <div class="solution-content col-12 pl-4 pr-4">
-              <div>
-                <p><span>FOR:</span><%= solution.target %></p>
+                <% end %>
               </div>
-              <p><span>DESCRIPTION: </span><%= solution.description %></p>
             </div>
-          </div>
-          <div class="col-12 mt-1 ml-1 pl-4 pb-1">
-            <div class="card-solution-description ">
-              <%= link_to 'More details...', solution_path(solution) %>
+            <div class="col-4 pl-0 pt-4">
+              <div class="card-solution-profile">
+                <h4 class="card-entrepreneur-solution"><%= solution.user.name %></h4>
+                <p class="date-post-solution"><%= solution.created_at.strftime('%d %b %Y')%></p>
+              </div>
             </div>
-          </div>
+            <div class="col-5">
+              <div class="btn-group p-3 d-flex justify-content-end mt-3">
+                <a href="" class="rounded-border btn btn-outline-secondary "><%= pluralize(solution.solution_votes_count, "vote") %></a>
+                <%= link_to(solution_votes_path(solution_id: solution.id), class:"rounded-border btn btn-outline-secondary", method: :post) do %>
+                <span class="btn-without-border">UPVOTE</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-12 mt-3">
+              <div class="card-solution-description d-flex">
+                <h3 class="card-solution-title pl-4 pr-4"><%= solution.title %></h3>
+              </div>
+            </div>
+            <div class="visible-scrollbar">
+              <div class="solution-content col-12 pl-4 pr-4">
+                <div>
+                  <p><span>FOR:</span><%= solution.target %></p>
+                </div>
+                <p><span>DESCRIPTION: </span><%= solution.description %></p>
+              </div>
+            </div>
+            <div class="col-12 mt-1 ml-1 pl-4 pb-1">
+              <div class="card-solution-description ">
+                <%= link_to 'More details...', solution_path(solution) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <% end %>
-
       <% end %>
-          </div>
     </div>
-
-<div class="container">
-  <div class="col-sm-12 text-center">
-    <div class="btn-underline-yellow-black mt-5 text-center">
-      <%= link_to "> Back to homepage", root_path %>
-    </div>
-    <div class="btn-underline-yellow-black mt-2 text-center">
-      <%= link_to "> Read the problems", problems_path %>
+  </div>
+  <div class="container">
+    <div class="col-sm-12 text-center">
+      <div class="btn-underline-yellow-black mt-5 text-center">
+        <%= link_to "> Back to homepage", root_path %>
+      </div>
+      <div class="btn-underline-yellow-black mt-2 text-center">
+        <%= link_to "> Read the needs", problems_path %>
+      </div>
     </div>
   </div>
 </div>
 </div>
 </div>
-</div>
+
 
 
