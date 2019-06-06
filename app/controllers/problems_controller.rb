@@ -37,7 +37,6 @@ class ProblemsController < ApplicationController
     @problem = Problem.new(problem_params)
     @problem.category = Category.find(params[:problem][:category_id])
     @problem.user = current_user
-    # raise
     if @problem.save
 
       redirect_to problem_path(@problem)
