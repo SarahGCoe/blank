@@ -25,7 +25,7 @@ puts 'Creating Education category'
 category_education = Category.create!(name: 'Education', img_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559569760/apple_kdcbws.png")
 
 # Users
-puts 'Creating 5 Users...'
+puts 'Creating 14 Users...'
 users = [{
           name: 'Alexandra',
           email:Faker::Internet.email,
@@ -55,6 +55,60 @@ users = [{
           email:Faker::Internet.email,
           password:'azerty',
           remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559741125/joseph.jpg"
+        },
+        {
+          name: 'Ricky',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559741297/ricky.jpg"
+        },
+        {
+          name: 'Theo',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559741125/theo.jpg"
+        },
+        {
+          name: 'Giorgio',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892763/Portraits/Giorgio_min37v.jpg"
+        },
+        {
+          name: 'Azamat',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892765/Portraits/Azama_mo893t.jpg"
+        },
+        {
+          name: 'Alia',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892769/Portraits/Alia_ehuduy.jpg"
+        },
+        {
+          name: 'Thibault',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892774/Portraits/Thibault_fzjqhf.jpg"
+        },
+        {
+          name: 'Karine',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892780/Portraits/Karine_pgv9qm.jpg"
+        },
+        {
+          name: 'Melia',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892847/Portraits/stock-avatar_l3gsfq.jpg"
+        },
+        {
+          name: 'Azalea',
+          email:Faker::Internet.email,
+          password:'azerty',
+          remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892847/Portraits/stock-avatar3_zqtrlx.jpg"
         }
 ]
 User.create!(users)
@@ -71,7 +125,8 @@ env_problems = [{
                             and worse.",
               category: category_environment,
               user: User.all.sample,
-              problem_votes_count: 100
+              problem_votes_count: 214,
+              created_at: 8.months.ago
             },
             {
               title: "Can't take plastic no more",
@@ -82,10 +137,14 @@ env_problems = [{
                             supermarkets.",
               category: category_environment,
               user: User.all.sample,
-              problem_votes_count:25
+              problem_votes_count:25,
+              created_at: 5.days.ago
             }]
 
 Problem.create!(env_problems)
+# pb = Problem.find_by(title: 'My dirty beach')
+# pb.created_at = 200.years.ago
+# pb.save
 puts '2 Environment Problems created!'
 
 puts 'Creating 2 Environment Solutions...'
@@ -100,7 +159,8 @@ env_solutions = [{
                   problem: Problem.find_by(title: 'My dirty beach'),
                   solution_votes_count: 110,
                   status: 'selected',
-                  target: 'People who want to make the right impact on the world'
+                  target: 'People who want to make the right impact on the world',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893722/trash%20tag.jpg"
                 },
                 {
                   title: 'My clean-up beach kit',
@@ -116,7 +176,8 @@ env_solutions = [{
                   problem: Problem.find_by(title: 'My dirty beach'),
                   solution_votes_count: 86,
                   status: 'pending',
-                  target: 'People who want to make the right impact on the world'
+                  target: 'People who want to make the right impact on the world',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892826/my%20clean-up%20beach%20kit.jpg"
                 },
                 {
                   title: 'RecyclePoint',
@@ -129,7 +190,8 @@ env_solutions = [{
                   problem: Problem.find_by(title: "Can't take plastic no more"),
                   solution_votes_count: 12,
                   status: 'pending',
-                  target:'People who want to make the right impact on the world'
+                  target:'People who want to make the right impact on the world',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892961/recycle%20point.jpg"
                 }]
 Solution.create!(env_solutions)
 puts '2 Environment Solutions created!'
@@ -145,7 +207,8 @@ life_problems = [{
                             imagine how anxious and stressed I am at the end of the day.",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 46
+              problem_votes_count: 74,
+              created_at: 2.weeks.ago
             },
             {
               title: 'I make all my plants die',
@@ -156,7 +219,8 @@ life_problems = [{
                             It makes me very sad and I can't think of a solution... Please help me !!",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 87
+              problem_votes_count: 20,
+              created_at: 1.day.ago
             },
             {
               title: 'Broke by betting a lot on sports',
@@ -168,7 +232,8 @@ life_problems = [{
                             me save my marriage!",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 54
+              problem_votes_count: 68,
+              created_at: 1.week.ago
             }]
 
 Problem.create!(life_problems)
@@ -189,7 +254,8 @@ life_solutions = [{
                   problem: Problem.find_by(title: 'Relax at work'),
                   solution_votes_count: 64,
                   status: 'pending',
-                  target:'Hard working and stressed people'
+                  target:'Hard working and stressed people',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892592/take-your-time.png"
                 },
                 {
                   title: 'Sleepy',
@@ -203,23 +269,24 @@ life_solutions = [{
                   problem: Problem.find_by(title: 'Relax at work'),
                   solution_votes_count: 544,
                   status: 'selected',
-                  target:'Hard working and stressed people'
+                  target:'Hard working and stressed people',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892601/sleepy.jpg"
                 },
-                {
-                  title: 'My Green Garden',
-                  description: "App guiding the user through a virtual garden where he can
-                                choose and take care of its plant throughout its entire life circle.
-                                Other available features: library with description and guiding tips
-                                for lots of dif-ferent plants; map with boutiques to buy flowers and
-                                plants nearby you; push notification to alert you when it's time to water
-                                your plant",
-                  user: User.all.sample,
-                  problem: Problem.find_by(title: 'I make all my plants die'),
-                  solution_votes_count: 146,
-                  status: 'selected',
-                  target: 'Rookie gardeners',
-                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559835051/Capture_d_%C3%A9cran_2019-06-05_%C3%A0_16.52.23_vh1cwy.png"
-                },
+                # {
+                #   title: 'My Green Garden',
+                #   description: "App guiding the user through a virtual garden where he can
+                #                 choose and take care of its plant throughout its entire life circle.
+                #                 Other available features: library with description and guiding tips
+                #                 for lots of dif-ferent plants; map with boutiques to buy flowers and
+                #                 plants nearby you; push notification to alert you when it's time to water
+                #                 your plant",
+                #   user: User.all.sample,
+                #   problem: Problem.find_by(title: 'I make all my plants die'),
+                #   solution_votes_count: 146,
+                #   status: 'selected',
+                #   target: 'Rookie gardeners',
+                #   remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559892608/my-green-garden_ipkfua.jpg"
+                # },
                 {
                   title: 'Jumbo',
                   description: "An app that scrapes datas on specialized sites,
@@ -246,10 +313,11 @@ food_problems = [{
                             give it away for free but it's a big loss of money and the
                             quantity is so important that even all the homeless people of
                             my neighbourhood are not enough. I'm sure someone can think of
-                            a great idea to avoid this to keep going on. Thanks for the help!",
+                            a great Foodidea to avoid this to keep going on. Thanks for the help!",
               category: category_food,
               user: User.all.sample,
-              problem_votes_count: rand(100)
+              problem_votes_count: rand(100),
+              created_at: 10.days.ago
             },
             {
               title: 'Bad cook',
@@ -260,7 +328,8 @@ food_problems = [{
                             trouble?",
               category: category_food,
               user: User.all.sample,
-              problem_votes_count: rand(100)
+              problem_votes_count: 250,
+              created_at: 7.weeks.ago
             }]
 
 Problem.create!(food_problems)
@@ -314,7 +383,8 @@ social_problems = [{
                             real interaction.",
               category: category_social,
               user: User.all.sample,
-              problem_votes_count: rand(100)
+              problem_votes_count: rand(100),
+              created_at: 5.days.ago
             },
             {
               title: 'Rescue my isolated grand-parents',
@@ -325,7 +395,8 @@ social_problems = [{
                             but very few applications are adapted to them.",
               category: category_social,
               user: User.all.sample,
-              problem_votes_count: rand(200)
+              problem_votes_count: rand(200),
+              created_at: 2.weeks.ago
             }]
 
 Problem.create!(social_problems)
@@ -342,7 +413,8 @@ social_solutions = [{
                   problem: Problem.find_by(title: 'Catching-up with my friends'),
                   solution_votes_count: 72,
                   status: 'pending',
-                  target: 'busy workers'
+                  target: 'busy workers',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893067/gloo.jpg"
                 },
                 {
                   title: 'Family Gazette',
@@ -358,6 +430,7 @@ social_solutions = [{
                   solution_votes_count: 53,
                   status: 'pending',
                   target: 'family worried about the grandparents',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893334/Family%20Gazette.jpg"
                 },
                 {
                   title: 'Sunday',
@@ -374,6 +447,7 @@ social_solutions = [{
                   solution_votes_count: 64,
                   status: 'pending',
                   target: 'family worried about the grandparents',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893261/sunday.jpg"
                 },
                 {
                   title: 'SilverSocial',
@@ -388,7 +462,8 @@ social_solutions = [{
                   problem: Problem.find_by(title: 'Rescue my isolated grand-parents'),
                   solution_votes_count: rand(100),
                   status: 'pending',
-                  target: 'family worried about the grandparents'
+                  target: 'family worried about the grandparents',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893117/SilverSocial.jpg"
                 }]
 Solution.create!(social_solutions)
 puts '2 Social Solutions created!'
@@ -403,7 +478,8 @@ tech_problems = [{
                             and I do NOT have time to take care of that.",
               category: category_tech,
               user: User.all.sample,
-              problem_votes_count: rand(300)
+              problem_votes_count: rand(250),
+              created_at: 1.month.ago
             },
             {
               title: 'Learn to code',
@@ -416,7 +492,8 @@ tech_problems = [{
                            with my criteria'Pay my bills on time'?",
               category: category_tech,
               user: User.all.sample,
-              problem_votes_count: rand(100)
+              problem_votes_count: rand(250),
+              created_at: 1.year.ago
             }]
 
 Problem.create!(tech_problems)
@@ -434,6 +511,7 @@ tech_solutions = [{
                   solution_votes_count: 534,
                   status: 'selected',
                   target: 'Young workers',
+                  remote_photo_url: "https://res.cloudinary.com/dx3ojip2r/image/upload/v1559893416/ManageMyBills.jpg"
                 },
                 {
                   title: "Le Wagon - Change your life: learn to code",
@@ -467,7 +545,8 @@ education_problems = [{
                             private teachers.",
               category: category_education,
               user: User.all.sample,
-              problem_votes_count: rand(100)
+              problem_votes_count: 5,
+              created_at: 2.hours.ago
             }]
 
 Problem.create!(education_problems)
