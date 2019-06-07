@@ -22,7 +22,9 @@
           <h4><%= @problem.category.name.upcase %></h4>
           <h3><%= @problem.title %></h3>
           <p><%= @problem.description %></p>
+          <div class="pt-5">
           <%= render 'shared/problem_vote', problem: @problem %>
+          </div>
       </div>
     </div>
     <div class="col-md-6">
