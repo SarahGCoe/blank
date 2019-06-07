@@ -207,7 +207,7 @@ life_problems = [{
                             imagine how anxious and stressed I am at the end of the day.",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 74,
+              problem_votes_count: 64,
               created_at: 2.weeks.ago
             },
             {
@@ -219,8 +219,8 @@ life_problems = [{
                             It makes me very sad and I can't think of a solution... Please help me !!",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 20,
-              created_at: 1.day.ago
+              problem_votes_count: 96,
+              created_at: 2.hours.ago
             },
             {
               title: 'Broke by betting a lot on sports',
@@ -232,7 +232,7 @@ life_problems = [{
                             me save my marriage!",
               category: category_lifestyle,
               user: User.all.sample,
-              problem_votes_count: 68,
+              problem_votes_count: 58,
               created_at: 1.week.ago
             }]
 
