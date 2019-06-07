@@ -119,7 +119,9 @@
                 </div>
                 <div class="col-sm-12 mt-1 ml-1 pl-4 pb-1">
                   <div class="card-solution-description p-3 ">
-                    <%= link_to 'Contribute!', solution_path(solution_popular) %>
+                    <<%= link_to(solution_path(solution), class: "rounded-border btn btn-warning text-white hover-white") do %>
+                     Contribute !
+                    <% end %>
                   </div>
                 </div>
               </div>
