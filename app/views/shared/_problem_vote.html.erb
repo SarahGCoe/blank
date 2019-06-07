@@ -4,7 +4,7 @@
        <div class="vote-up-<%=problem.id%>">
          <%= button_to(problem_votes_path, class:'rounded-border btn btn-warning text-light', remote: true) do %>
          <%= hidden_field_tag 'problem_id', problem.id %>
-         +1 UP TO VOTE
+         +1 UPVOTE
          <% end %>
       </div>
    </div>
